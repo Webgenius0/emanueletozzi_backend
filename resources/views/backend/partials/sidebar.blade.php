@@ -229,6 +229,13 @@
                         class="menu-link" href="{{ route('experts.index') }}">Experties</a></li>
 
             </ul>
+
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('skills.index') || Request::routeIs('skills.edit') || Request::routeIs('skills.create') || Request::routeIs('skills.update') ? 'active' : '' }}"><a
+                        class="menu-link" href="{{ route('skills.index') }}">Skills</a></li>
+
+            </ul>
         </li>
 
         <li class="menu-header small text-uppercase">

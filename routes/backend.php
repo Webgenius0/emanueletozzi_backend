@@ -19,6 +19,7 @@ use App\Http\Controllers\Web\Backend\CMS\LandingPage\LandingPageController;
 use App\Http\Controllers\Web\Backend\CMS\LandingPage\ClientReviewController;
 use App\Http\Controllers\Web\Backend\CMS\LandingPage\SuccessGuideController;
 use App\Http\Controllers\Web\Backend\CMS\ContactUsPage\ContactUsPageController;
+use App\Http\Controllers\Web\Backend\SkillController;
 
 Route::middleware('auth')->group(function () {
 
@@ -132,6 +133,23 @@ Route::middleware('auth')->group(function () {
         Route::delete('/experts/delete/{id}', 'destroy')->name('experts.destroy');
         Route::get('/experts/status/{id}', 'status')->name('experts.status');
     });
+
+
+    Route::controller(SkillController::class)->group(function () {
+
+        /// Emanueltozzi code start
+
+       Route::get('/skills', 'index')->name('skills.index');
+       Route::get('/skills/create', 'create')->name('skills.create');
+       Route::post('/skills/store', 'store')->name('skills.store');
+       Route::get('/skills/edit/{id}', 'edit')->name('skills.edit');
+       Route::post('/skills/update/{id}', 'update')->name('skills.update');
+       Route::delete('/skills/delete/{id}', 'destroy')->name('skills.destroy');
+       Route::get('/skills/status/{id}', 'status')->name('skills.status');
+   });
+
+
+
 
     // Route for Faq Controller
     Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');

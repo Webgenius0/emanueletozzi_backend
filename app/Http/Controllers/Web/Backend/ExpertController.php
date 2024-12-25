@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers\Web\Backend;
 
+use App\Http\Controllers\Controller;
 use App\Models\Expert;
-use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use App\Http\Controllers\Controller;
-use App\Models\Experience;
-use App\Models\Skill;
-use Illuminate\Support\Facades\File;
-use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Exp;
 
 class ExpertController extends Controller
 {
@@ -42,7 +37,7 @@ class ExpertController extends Controller
                 ->addColumn('action', function ($data) {
 
                     return '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                  <a href="' . route('experts.edit',  $data->id) . '" type="button" class="btn btn-success text-white" title="Edit">
+                                  <a href="' . route('experts.edit', $data->id) . '" type="button" class="btn btn-success text-white" title="Edit">
                                   <i class="bi bi-pencil"></i>
                                   </a>
                                   <a href="#" onclick="showDeleteConfirm(' . $data->id . ')" type="button" class="btn btn-danger text-white" title="Delete">
@@ -57,7 +52,6 @@ class ExpertController extends Controller
         return view('backend.layouts.experts.index');
     }
 
-
     /**
      * Show the form for creating a new clinical dynamic page.
      */
@@ -65,8 +59,6 @@ class ExpertController extends Controller
     {
         return view('backend.layouts.experts.create');
     }
-
-
 
     /**
      * Store a newly created clinical page in the database.
@@ -86,12 +78,9 @@ class ExpertController extends Controller
         ]);
         // dd($request->all());
 
+        Expert::create($request->only(['name', 'designation', 'experience_year', 'email', 'phone', 'description']));
 
-    Expert::create($request->only(['name', 'designation', 'experience_year', 'email', 'phone', 'description']));
-
-
-
-        return redirect()->route('exports.index')->with('t-success', 'Data Created Successfully');
+        return redirect()->route('experts.index')->with('t-success', 'Data Created Successfully');
     }
 
     /**
@@ -116,7 +105,6 @@ class ExpertController extends Controller
             'description' => 'nullable|string',
         ]);
 
-
         $data = Expert::find($id);
 
         $data->update($request->all());
@@ -136,10 +124,9 @@ class ExpertController extends Controller
 
         return response()->json([
             'success' => true,
-            'message'   => 'Deleted successfully.',
+            'message' => 'Deleted successfully.',
         ]);
     }
-
 
     /**
      * Update the status of a process.
@@ -153,14 +140,13 @@ class ExpertController extends Controller
         $data = Expert::findOrFail($id);
         //        return $data;
 
-
         if ($data->status == 'active') {
             $data->status = 'inactive';
             $data->save();
             return response()->json([
                 'success' => false,
                 'message' => 'Unpublished Successfully.',
-                'data'    => $data,
+                'data' => $data,
             ]);
         } else {
             $data->status = 'active';
@@ -168,7 +154,7 @@ class ExpertController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Published Successfully.',
-                'data'    => $data,
+                'data' => $data,
             ]);
         }
     }

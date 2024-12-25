@@ -24,7 +24,7 @@ class HomeController extends Controller
        $processes =  Process::where('status','active')->get();
 
 
-        return view('frontend.layouts.home', compact('cms','faqs'));
+        return view('frontend.layouts.home', compact('cms','processes'));
     }
 
     public function about()

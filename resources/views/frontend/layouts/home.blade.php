@@ -3,14 +3,12 @@
 @section('title', 'Preceptor Guru')
 
 @push('style')
-
-<style>
- #map iframe {
-  width: 100%;
-  height: 100%;
-}
-</style>
-
+    <style>
+        #map iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -348,10 +346,10 @@
 
                             <p>{!! $cms[2]->description ??
                                 'Choosing Preceptor GURU means choosing a pathway to success. We understand the unique
-                                                                                                                                                                                                                                                                                                                        challenges and demands of NP training, and we’re here to provide the guidance,
-                                                                                                                                                                                                                                                                                                                        support, and resources you need to excel. Our comprehensive preceptorship programs
-                                                                                                                                                                                                                                                                                                                        are crafted to help you transition smoothly from student to skilled practitioner,
-                                                                                                                                                                                                                                                                                                                        ensuring you are well-prepared for a rewarding career in healthcare.' !!}</p>
+                                                                                                                                                                                                                                                                                                                                                    challenges and demands of NP training, and we’re here to provide the guidance,
+                                                                                                                                                                                                                                                                                                                                                    support, and resources you need to excel. Our comprehensive preceptorship programs
+                                                                                                                                                                                                                                                                                                                                                    are crafted to help you transition smoothly from student to skilled practitioner,
+                                                                                                                                                                                                                                                                                                                                                    ensuring you are well-prepared for a rewarding career in healthcare.' !!}</p>
                         </div>
                     </div>
                     <div class="why--chose--us--btn">
@@ -375,7 +373,7 @@
                         <h4>{{ $cms[3]->sub_title ?? 'Ready to start your preceptorship journey?' }}</h4>
                         <p>{!! $cms[3]->description ??
                             'Join Preceptor GURU today and take the next step toward a successful career in
-                                                                                                                                                                                                                                                                            healthcare!' !!}</p>
+                                                                                                                                                                                                                                                                                                    healthcare!' !!}</p>
 
                         <a href="{{ route('conatct-us') }}">{{ $cms[3]->button_text ?? 'Contact Us' }}</a>
                     </div>
@@ -426,7 +424,8 @@
                 </div>
             </div>
             <div id="map">
-                {!! $cms[14]->link_url ?? '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423284.6897532054!2d-118.41173249999999!3d34.020479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1724730107610!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' !!}
+                {!! $cms[14]->link_url ??
+                    '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423284.6897532054!2d-118.41173249999999!3d34.020479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1724730107610!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' !!}
             </div>
         </div>
     </section>
@@ -452,13 +451,13 @@
 
                             <p>{!! $cms[5]->description ??
                                 "Discover a seamless and enriching journey with Preceptor Guru's Nurse Practitioner
-                                                                                                                                                                                                                                                                                                                        Preceptorship Program. Our intuitive platform connects you with top-tier preceptors,
-                                                                                                                                                                                                                                                                                                                        ensuring you gain the hands-on experience and mentorship you need to excel. From
-                                                                                                                                                                                                                                                                                                                        submitting your information to securing your preceptor slot and receiving university
-                                                                                                                                                                                                                                                                                                                        approval, we handle the details so you can focus on what matters most—your education
-                                                                                                                                                                                                                                                                                                                        and career. Join us today and take the first step towards a thriving future in
-                                                                                                                                                                                                                                                                                                                        healthcare, supported every step of the way by a dedicated team and an extensive
-                                                                                                                                                                                                                                                                                                                        network of experienced professionals. Your NP success story begins here!" !!}</p>
+                                                                                                                                                                                                                                                                                                                                                    Preceptorship Program. Our intuitive platform connects you with top-tier preceptors,
+                                                                                                                                                                                                                                                                                                                                                    ensuring you gain the hands-on experience and mentorship you need to excel. From
+                                                                                                                                                                                                                                                                                                                                                    submitting your information to securing your preceptor slot and receiving university
+                                                                                                                                                                                                                                                                                                                                                    approval, we handle the details so you can focus on what matters most—your education
+                                                                                                                                                                                                                                                                                                                                                    and career. Join us today and take the first step towards a thriving future in
+                                                                                                                                                                                                                                                                                                                                                    healthcare, supported every step of the way by a dedicated team and an extensive
+                                                                                                                                                                                                                                                                                                                                                    network of experienced professionals. Your NP success story begins here!" !!}</p>
                         </div>
                     </div>
                     <div class="why--chose--us--btn">
@@ -486,7 +485,7 @@
 
             <div class="gateWay--item--wrapper">
 
-                @if ($successGuides->isEmpty())
+                {{-- @if ($successGuides->isEmpty())
 
                     <div class="gateWay--item">
                         <div class="gateWay--item--svg">
@@ -617,7 +616,7 @@
                         </div>
                     @endforeach
 
-                @endif
+                @endif --}}
 
             </div>
         </div>
@@ -640,168 +639,186 @@
                 <div class="faq--accourdion--main">
                     <div class="accordion" id="accordionExample">
 
-                        @if ($faqs->isEmpty())
-                        <div class="accordion-item">
-
-                            <h2 class="accordion-header" id="headingOne">
-
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-
-                                    <div class="accordion--text">
-                                        <h5>How long does it take for Preceptor GURU to process and review my
-                                            rotation request and profile?</h5>
-                                    </div>
-
-                                </button>
-                            </h2>
-
-                            <div id="collapseOne" class="accordion-collapse collapse show"
-                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>The review process usually takes 2-3 business days. Our team carefully reviews your rotation request and profile to ensure all information is complete and accurate, aiming to match you with the best possible preceptor.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-
-                            <h2 class="accordion-header" id="headingTwo">
-
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    <div class="accordion--text">
-                                        <h5>What steps can I take to avoid delays in preceptor approval?</h5>
-                                    </div>
-                                </button>
-
-                            </h2>
-
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>To prevent delays, make sure your profile is fully completed with all required information, including your academic background, clinical interests, and specific preferences or requirements. Also, promptly submit any additional documentation requested by our team or your university.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false"
-                                    aria-controls="collapseThree">
-                                    <div class="accordion--text">
-                                        <h5>How long does it take to finalize the paperwork?</h5>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Once your preceptor is matched and the arrangement is approved, the paperwork completion process typically takes 7-10 business days. This includes finalizing all necessary documentation and agreements between you, your preceptor, and your university.</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour" aria-expanded="false"
-                                    aria-controls="collapseFour">
-                                    <div class="accordion--text">
-                                        <h5>What documents will I receive once the paperwork is completed?</h5>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Upon completion, you will receive a comprehensive preceptorship agreement package. This includes your preceptorship schedule, contact information for your preceptor, and any additional instructions or guidelines from your university.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive" aria-expanded="false"
-                                    aria-controls="collapseFive">
-                                    <div class="accordion--text">
-                                        <h5>What if my university does not approve the preceptor?</h5>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>If your university does not approve the preceptor, we will work with you to find an alternative preceptor who meets your university's requirements. We aim to resolve such issues promptly to avoid any disruption to your clinical training schedule.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSix" aria-expanded="false"
-                                    aria-controls="collapseSix">
-                                    <div class="accordion--text">
-                                        <h5>Who provides the contact information for my preceptor/site for scheduling?</h5>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Once your preceptorship is confirmed and all paperwork is completed, our team will provide you with the contact information for your preceptor and the clinical site. This will allow you to coordinate and schedule your rotation directly with your preceptor.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingSeven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseSeven" aria-expanded="false"
-                                    aria-controls="collapseSeven">
-                                    <div class="accordion--text">
-                                        <h5>Can I submit a review for my preceptor after completing my rotation?
-                                        </h5>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Yes, we highly encourage you to submit a review for your preceptor once your rotation has ended. Your feedback is invaluable in helping us maintain high-quality preceptorship experiences and assist future students in making informed decisions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        @else
-                            @foreach ($faqs as $faq)
+                        {{-- @if ($faqs->isEmpty())
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading{{ $faq->id }}">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse{{ $faq->id }}" aria-expanded="false"
-                                        aria-controls="collapse{{ $faq->id }}">
+
+                                <h2 class="accordion-header" id="headingOne">
+
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
                                         <div class="accordion--text">
-                                            <h5>{!! $faq->question ??
-                                                "How long does it take for Preceptor GURU to process and review my
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        rotation request and profile?" !!}</h5>
+                                            <h5>How long does it take for Preceptor GURU to process and review my
+                                                rotation request and profile?</h5>
+                                        </div>
+
+                                    </button>
+                                </h2>
+
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>The review process usually takes 2-3 business days. Our team carefully reviews
+                                            your rotation request and profile to ensure all information is complete and
+                                            accurate, aiming to match you with the best possible preceptor.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+
+                                <h2 class="accordion-header" id="headingTwo">
+
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="accordion--text">
+                                            <h5>What steps can I take to avoid delays in preceptor approval?</h5>
+                                        </div>
+                                    </button>
+
+                                </h2>
+
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>To prevent delays, make sure your profile is fully completed with all required
+                                            information, including your academic background, clinical interests, and
+                                            specific preferences or requirements. Also, promptly submit any additional
+                                            documentation requested by our team or your university.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        <div class="accordion--text">
+                                            <h5>How long does it take to finalize the paperwork?</h5>
                                         </div>
                                     </button>
                                 </h2>
-                                <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ $faq->id }}"
-                                    data-bs-parent="#accordionExample">
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <p>{!! $faq->answer ??
-                                            "" !!}</p>
+                                        <p>Once your preceptor is matched and the arrangement is approved, the paperwork
+                                            completion process typically takes 7-10 business days. This includes finalizing
+                                            all necessary documentation and agreements between you, your preceptor, and your
+                                            university.</p>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false"
+                                        aria-controls="collapseFour">
+                                        <div class="accordion--text">
+                                            <h5>What documents will I receive once the paperwork is completed?</h5>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Upon completion, you will receive a comprehensive preceptorship agreement
+                                            package. This includes your preceptorship schedule, contact information for your
+                                            preceptor, and any additional instructions or guidelines from your university.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFive" aria-expanded="false"
+                                        aria-controls="collapseFive">
+                                        <div class="accordion--text">
+                                            <h5>What if my university does not approve the preceptor?</h5>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>If your university does not approve the preceptor, we will work with you to find
+                                            an alternative preceptor who meets your university's requirements. We aim to
+                                            resolve such issues promptly to avoid any disruption to your clinical training
+                                            schedule.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        <div class="accordion--text">
+                                            <h5>Who provides the contact information for my preceptor/site for scheduling?
+                                            </h5>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Once your preceptorship is confirmed and all paperwork is completed, our team
+                                            will provide you with the contact information for your preceptor and the
+                                            clinical site. This will allow you to coordinate and schedule your rotation
+                                            directly with your preceptor.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseSeven" aria-expanded="false"
+                                        aria-controls="collapseSeven">
+                                        <div class="accordion--text">
+                                            <h5>Can I submit a review for my preceptor after completing my rotation?
+                                            </h5>
+                                        </div>
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse"
+                                    aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <p>Yes, we highly encourage you to submit a review for your preceptor once your
+                                            rotation has ended. Your feedback is invaluable in helping us maintain
+                                            high-quality preceptorship experiences and assist future students in making
+                                            informed decisions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            @foreach ($faqs as $faq)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading{{ $faq->id }}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $faq->id }}"
+                                            aria-expanded="false" aria-controls="collapse{{ $faq->id }}">
+                                            <div class="accordion--text">
+                                                <h5>{!! $faq->question ??
+                                                    "How long does it take for Preceptor GURU to process and review my
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        rotation request and profile?" !!}</h5>
+                                            </div>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $faq->id }}" class="accordion-collapse collapse"
+                                        aria-labelledby="heading{{ $faq->id }}" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>{!! $faq->answer ?? '' !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
-                        @endif
+                        @endif --}}
 
                     </div>
                 </div>
-
                 <div class="faq--btn">
                     <a href="{{ route('faq.page') }}">See More</a>
                 </div>

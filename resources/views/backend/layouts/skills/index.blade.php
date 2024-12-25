@@ -16,19 +16,17 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Experts</h4>
-                        <div style="display: flex;justify-content: end;"><a href="{{ route('experts.create') }}"
+                        <h4 class="card-title">Skills</h4>
+                        <div style="display: flex;justify-content: end;"><a href="{{ route('skills.create') }}"
                                 class="btn btn-primary">Create</a></div>
                         <div class="table-responsive mt-4 p-4">
                             <table class="table table-hover" id="data-table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
-                                        <th>Designation</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Status</th>
+                                        <th>Expert Name</th>
+                                        <th>Skills</th>
+
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -77,7 +75,7 @@
                     pagingType: "full_numbers",
                     dom: "<'row justify-content-between table-topbar'<'col-md-2 col-sm-4 px-0'l><'col-md-2 col-sm-4 px-0'f>>tipr",
                     ajax: {
-                        url: "{{ route('experts.index') }}",
+                        url: "{{ route('skills.index') }}",
                         type: "GET"
                     },
                     columns: [{
@@ -87,35 +85,18 @@
                             searchable: false
                         },
                         {
+                            data: 'expert',
+                            name: 'expert',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
                             data: 'name',
                             name: 'name',
                             orderable: true,
                             searchable: true
                         },
-                        {
-                            data: 'designation',
-                            name: 'designation',
-                            orderable: true,
-                            searchable: true
-                        },
-                        {
-                            data: 'email',
-                            name: 'email',
-                            orderable: true,
-                            searchable: true
-                        },
-                        {
-                            data: 'phone',
-                            name: 'phone',
-                            orderable: true,
-                            searchable: true
-                        },
-                        {
-                            data: 'status',
-                            name: 'status',
-                            orderable: true,
-                            searchable: true
-                        },
+
                         {
                             data: 'action',
                             name: 'action',
@@ -208,7 +189,7 @@
         }
         // Delete Button
         function deleteItem(id) {
-            let url = '{{ route('experts.destroy', ':id') }}';
+            let url = '{{ route('skills.destroy', ':id') }}';
             let csrfToken = '{{ csrf_token() }}';
             $.ajax({
                 type: "DELETE",

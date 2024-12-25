@@ -18,11 +18,33 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Expert</h4>
+                        <h4 class="card-title">Create Skill</h4>
                         <div class="mt-4">
-                            <form class="forms-sample" action="{{ route('experts.store') }}" method="POST"
+                            <form class="forms-sample" action="{{ route('skills.store') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
+
+                                {{-- experties filed dropdown --}}
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group
+                                        @error('expert_id') has-danger @enderror">
+                                            <label class="form-lable required">Expert Name:</label>
+                                            <select class="form-control " name="expert_id">
+                                                <option value="">Select Expert</option>
+                                                @foreach ($experts as $expert)
+                                                    <option value="{{ $expert->id }}">{{ $expert->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('expert_id')
+                                                <div style="color: red;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                                 <!-- Name Field -->
                                 <div class="row">
                                     <div class="col-12">
@@ -36,74 +58,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label class="form-lable required">Designation:</label>
-                                            <input type="text"
-                                                class="form-control @error('designation') is-invalid @enderror"
-                                                id="designation" name="designation" value="{{ old('designation') }}">
-                                            @error('designation')
-                                                <div style="color: red;">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label class="form-lable required">Experience Year:</label>
-                                            <input type="text"
-                                                class="form-control @error('experience_year') is-invalid @enderror"
-                                                id="experience_year" name="experience_year"
-                                                value="{{ old('experience_year') }}">
-                                            @error('experience_year')
-                                                <div style="color: red;">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label class="form-lable required">Email:</label>
-                                            <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                                id="email" name="email" value="{{ old('email') }}">
-                                            @error('email')
-                                                <div style="color: red;">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group mb-3">
-                                            <label class="form-lable required">Phone Number:</label>
-                                            <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                                id="phone" name="phone" value="{{ old('phone') }}">
-                                            @error('phone')
-                                                <div style="color: red;">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <!-- Description Field -->
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group row mb-3">
-                                            <div class="col">
-                                                <label class="form-lable required">Description:</label>
-                                                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{ old('description') }}</textarea>
-                                                @error('description')
-                                                    <div style="color: red;">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <button type="submit" class="btn btn-primary me-2">Submit</button>
                                 <a href="{{ route('experts.index') }}" class="btn btn-danger ">Cancel</a>
@@ -146,6 +103,6 @@
             $('.select2').select2();
         });
 
-      
+
     </script>
 @endpush

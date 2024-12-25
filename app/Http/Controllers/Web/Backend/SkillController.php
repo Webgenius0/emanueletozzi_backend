@@ -6,10 +6,11 @@ use App\Models\Skill;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use App\Models\Expert;
 
 class SkillController extends Controller
 {
-     /**
+    /**
      * Displays the list of process.
      *
      * This method handles AJAX requests to fetch and return clinical data
@@ -20,25 +21,19 @@ class SkillController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Skill::with('expert')->get();
-
+        $data = Skill::latest();
+        // dd($data);
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('status', function ($data) {
-                    $status = ' <div class="form-check form-switch" style="margin-left:10px;">';
-                    $status .= ' <input onclick="showStatusChangeAlert(' . $data->id . ')" type="checkbox" class="form-check-input" style="width: 2em;" id="customSwitch' . $data->id . '" getAreaid="' . $data->id . '" name="status"';
-                    if ($data->status == "active") {
-                        $status .= "checked";
-                    }
-                    $status .= '><label for="customSwitch' . $data->id . '" class="form-check-label" for="customSwitch"></label></div>';
-
-                    return $status;
+                ->addColumn('expert', function ($data) {
+                    return $data->expert->name;
                 })
+
                 ->addColumn('action', function ($data) {
 
                     return '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                  <a href="' . route('skills.edit',  $data->id) . '" type="button" class="btn btn-success text-white" title="Edit">
+                                  <a href="' . route('skills.edit', $data->id) . '" type="button" class="btn btn-success text-white" title="Edit">
                                   <i class="bi bi-pencil"></i>
                                   </a>
                                   <a href="#" onclick="showDeleteConfirm(' . $data->id . ')" type="button" class="btn btn-danger text-white" title="Delete">
@@ -46,27 +41,22 @@ class SkillController extends Controller
                                 </a>
                                 </div>';
                 })
-                ->addColumn('image', function ($data) {
-                    $url = asset($data->image_url);
-                    return '<img src="' . $url . '" alt="image" width="50px" height="50px" style="margin-left:20px;">';
-                })
-                ->rawColumns(['status', 'action','image'])
+                ->rawColumns([ 'expert', 'action'])
                 ->make(true);
         }
 
-        return view('backend.layouts.tools.index');
+        return view('backend.layouts.skills.index');
     }
-
 
     /**
      * Show the form for creating a new clinical dynamic page.
      */
     public function create()
     {
-        return view('backend.layouts.tools.create');
+        $experts = Expert::all();
+
+        return view('backend.layouts.skills.create', compact('experts'));
     }
-
-
 
     /**
      * Store a newly created clinical page in the database.
@@ -75,19 +65,15 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'excel_file' => 'required|mimes:xls,xlsx',
+            'expert_id' => 'required|integer',
+            'name' => 'required|string|max:255',
+
         ]);
+        // dd($request->all());
 
-
-        $data = new Skill();
-
-        $data->description = $request->description;
-
-        $data->save();
+        Skill::create($request->only(['name','expert_id']));
 
         return redirect()->route('skills.index')->with('t-success', 'Data Created Successfully');
     }
@@ -101,23 +87,19 @@ class SkillController extends Controller
 
     public function edit($id)
     {
-        return view('backend.layouts.tools.edit',['data' => Skill::find($id)]);
+        $experts = Expert::all();
+        return view('backend.layouts.skills.edit', ['data' => Skill::find($id), 'experts' => $experts]);
     }
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'excel_file' => 'nullable|mimes:xls,xlsx',
+            'name' => 'required|string|max:255',
+            'expert_id' => 'required|integer',
         ]);
 
-
         $data = Skill::find($id);
-        $data->title = $request->title;
-        $data->description = $request->description;
 
-        $data->save();
+        $data->update($request->all());
 
         return redirect()->route('skills.index')->with('t-success', 'Data Updated Successfully');
     }
@@ -134,9 +116,38 @@ class SkillController extends Controller
 
         return response()->json([
             'success' => true,
-            'message'   => 'Deleted successfully.',
+            'message' => 'Deleted successfully.',
         ]);
     }
 
+    /**
+     * Update the status of a process.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
 
+    public function status($id)
+    {
+        $data = Expert::findOrFail($id);
+        //        return $data;
+
+        if ($data->status == 'active') {
+            $data->status = 'inactive';
+            $data->save();
+            return response()->json([
+                'success' => false,
+                'message' => 'Unpublished Successfully.',
+                'data' => $data,
+            ]);
+        } else {
+            $data->status = 'active';
+            $data->save();
+            return response()->json([
+                'success' => true,
+                'message' => 'Published Successfully.',
+                'data' => $data,
+            ]);
+        }
+    }
 }

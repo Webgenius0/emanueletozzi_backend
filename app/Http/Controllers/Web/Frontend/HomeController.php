@@ -22,11 +22,9 @@ class HomeController extends Controller
 
        //$processes =  Process::get();
        $processes =  Process::where('status','active')->get();
-       $successGuides = ClinicalRotation::where('status','active')->get();
-       $faqs = Faq::where('status','active')->get();
 
 
-        return view('frontend.layouts.home', compact('cms','processes','successGuides','faqs'));
+        return view('frontend.layouts.home', compact('cms','faqs'));
     }
 
     public function about()

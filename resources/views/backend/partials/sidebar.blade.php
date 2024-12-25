@@ -70,17 +70,17 @@
                         class="menu-link" href="{{ route('client-reviews.index') }}">Client Reviews</a></li>
 
             </ul>
-            <ul class="menu-sub">
+            {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('process.*') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('process.index') }}">Process</a></li>
 
-            </ul>
+            </ul> --}}
             {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.ideal-preceptor') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.landing-page.ideal-preceptor') }}">Ideal Preceptor</a></li>
 
             </ul> --}}
-            <ul class="menu-sub">
+            {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.connect-member') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.landing-page.connect-member') }}">Connect Member</a></li>
 
@@ -89,17 +89,17 @@
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.map') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.landing-page.map') }}">Available Preceptor Map</a></li>
 
-            </ul>
+            </ul> --}}
             {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.expert-preceptor') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.landing-page.expert-preceptor') }}">Expert Preceptor</a></li>
 
             </ul> --}}
-            <ul class="menu-sub">
+            {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('clinical.*') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('clinical.index') }}">Success Guide</a></li>
 
-            </ul>
+            </ul> --}}
         </li>
 
         <li class="menu-item {{ Request::routeIs('cms.about-us.*') || Request::routeIs('cms.intake-form.*')  ? 'active open' : '' }}">
@@ -155,7 +155,7 @@
             </ul>
         </li>
 
-        <li class="menu-item {{ Request::routeIs('cms.student-form') || Request::routeIs('cms.intake-form') ? 'active open' : '' }}">
+        {{-- <li class="menu-item {{ Request::routeIs('cms.student-form') || Request::routeIs('cms.intake-form') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
                 <div data-i18n="Layouts">Student From Page</div>
@@ -171,11 +171,11 @@
                         class="menu-link" href="{{ route('cms.intake-form') }}">Intake Form</a></li>
 
             </ul>
-        </li>
+        </li> --}}
 
 
 
-        <li class="menu-item {{ Request::routeIs('cms.card-one') ? 'active open' : '' }}">
+        {{-- <li class="menu-item {{ Request::routeIs('cms.card-one') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-shield-plus"></i>
                 <div data-i18n="Layouts">Became Prepceptor</div>
@@ -185,14 +185,14 @@
                         class="menu-link" href="{{ route('cms.card-one') }}">What Will You Get</a></li>
 
             </ul>
-            {{-- <ul class="menu-sub">
+            <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.ideal-preceptor.preceptor') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.ideal-preceptor.preceptor') }}">Ideal Preceptor</a></li>
 
-            </ul> --}}
-        </li>
+            </ul>
+        </li> --}}
 
-        <li class="menu-item {{ Request::routeIs('cms.contact') ? 'active open' : '' }}">
+        {{-- <li class="menu-item {{ Request::routeIs('cms.contact') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-contact"></i>
                 <div data-i18n="Layouts">Contact Us</div>
@@ -202,7 +202,7 @@
                         class="menu-link" href="{{ route('cms.contact') }}">Contact Information</a></li>
 
             </ul>
-        </li>
+        </li> --}}
 
 
         <!-- Layouts -->
@@ -257,7 +257,7 @@
 
         <!-- Layouts -->
 
-        <li class="menu-header small text-uppercase">
+        {{-- <li class="menu-header small text-uppercase">
             <span class="menu-header-text">FAQ</span>
         </li>
 
@@ -266,7 +266,7 @@
                 <i class="menu-icon tf-icons bx bi-patch-question"></i>
                 <div data-i18n="Layouts">FAQ's</div>
             </a>
-        </li>
+        </li> --}}
 
 
 

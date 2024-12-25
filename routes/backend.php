@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Web\Backend\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\Backend\FAQController;
+use App\Http\Controllers\Web\Backend\BlogController;
+use App\Http\Controllers\Web\Backend\ToolController;
+use App\Http\Controllers\Web\Backend\ExpertController;
 use App\Http\Controllers\Web\Backend\ContactUsController;
 use App\Http\Controllers\Web\Backend\DashboardController;
 use App\Http\Controllers\Web\Backend\NewsletterListController;
@@ -17,7 +19,6 @@ use App\Http\Controllers\Web\Backend\CMS\LandingPage\LandingPageController;
 use App\Http\Controllers\Web\Backend\CMS\LandingPage\ClientReviewController;
 use App\Http\Controllers\Web\Backend\CMS\LandingPage\SuccessGuideController;
 use App\Http\Controllers\Web\Backend\CMS\ContactUsPage\ContactUsPageController;
-use App\Http\Controllers\Web\Backend\ToolController;
 
 Route::middleware('auth')->group(function () {
 
@@ -116,6 +117,20 @@ Route::middleware('auth')->group(function () {
         Route::post('/blogs/update/{id}', 'update')->name('blogs.update');
         Route::delete('/blogs/delete/{id}', 'destroy')->name('blogs.destroy');
         Route::get('/blogs/status/{id}', 'status')->name('blogs.status');
+    });
+
+    //!Route for ExpertsController for Blog Page
+    Route::controller(ExpertController::class)->group(function () {
+
+         /// Emanueltozzi code start
+
+        Route::get('/experts', 'index')->name('experts.index');
+        Route::get('/experts/create', 'create')->name('experts.create');
+        Route::post('/experts/store', 'store')->name('experts.store');
+        Route::get('/experts/edit/{id}', 'edit')->name('experts.edit');
+        Route::post('/experts/update/{id}', 'update')->name('experts.update');
+        Route::delete('/experts/delete/{id}', 'destroy')->name('experts.destroy');
+        Route::get('/experts/status/{id}', 'status')->name('experts.status');
     });
 
     // Route for Faq Controller

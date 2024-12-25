@@ -208,6 +208,30 @@
         <!-- Layouts -->
 
         <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Experties</span>
+        </li>
+
+
+        <li class="menu-item {{ Request::routeIs('experts.*') ? 'active open' : '' }}">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-male-female"></i>
+                <div data-i18n="Layouts">Experties Page</div>
+            </a>
+
+            {{-- <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('experts.header') ? 'active' : '' }}"><a
+                        class="menu-link" href="{{ route('experts.header') }}">Experties Header</a></li>
+
+            </ul> --}}
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('experts.index') || Request::routeIs('experts.edit') || Request::routeIs('experts.create') || Request::routeIs('experts.update') ? 'active' : '' }}"><a
+                        class="menu-link" href="{{ route('experts.index') }}">Experties</a></li>
+
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Blog</span>
         </li>
 

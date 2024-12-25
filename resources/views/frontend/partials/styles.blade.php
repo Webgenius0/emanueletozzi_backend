@@ -2,18 +2,17 @@
 
 
 
-<link rel="stylesheet" href=" {{asset('frontend/css/helper.css')}} " />
-<link rel="stylesheet" href=" {{asset('frontend/css/tm-style.css')}} " />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/helper.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/tm-style.css" />
 
-<link rel="stylesheet" href=" {{asset('frontend/css/navbar.css')}} " />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/navbar.css" />
 
-<link rel="stylesheet" href="{{asset('frontend/css/footer.css')}} " />
-<link rel="stylesheet" href="{{asset('frontend/css/contact-us.css')}} " />
-<link rel="stylesheet" href=" {{asset('frontend/css/tm-responsive.css')}} " />
-<link rel="stylesheet" href="{{asset('frontend/css/common-header.css')}} " />
-<link rel="stylesheet" href="{{asset('frontend/css/commitment.css')}}" />
-<link rel="stylesheet" href="{{asset('frontend/css/pricing-card.css')}}" />
-<link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}  />
-
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/footer.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/contact-us.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/tm-responsive.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/common-header.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/commitment.css" />
+<link rel="stylesheet" href="http://127.0.0.1:8000/frontend/css/pricing-card.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/modal.css" />
 
 @stack('style')

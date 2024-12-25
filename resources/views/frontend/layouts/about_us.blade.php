@@ -40,7 +40,7 @@
     <!-- header area ends -->
 
     <!-- main area starts -->
-    <main>
+
         <!-- who we are section styles -->
         <section class="who-we-are-container">
             <h2 class="section-title">Who we are</h2>
@@ -202,18 +202,10 @@
 
         <!-- professionals section starts -->
         @include('frontend.layouts.dedicated_professionals')
-    </main>
+
 @endsection
 
 
 @push('script')
-    <script>
-        document?.addEventListener("DOMContentLoaded", function() {
-            var items = document.querySelectorAll('.our--value--item');
-            if (items.length > 0 && (items.length % 2) === 1) {
-                var lastItem = items[items.length - 1];
-                lastItem.classList.add('last-child-odd');
-            }
-        });
-    </script>
+
 @endpush

@@ -1,8 +1,9 @@
-{{-- @extends('frontend.app')
+@extends('frontend.app')
 
 @section('title', 'About Us')
 
 @push('style')
+
 @endpush
 
 @section('content')
@@ -35,45 +36,134 @@
 
     <!-- main area starts -->
 
-        <!-- tools section starts -->
-        <section class="tools-container">
-            <h2 class="section-title custom-container">Tools</h2>
-            <div class="title-border"></div>
-            <!-- tools 1 -->
+    <!-- tools section starts -->
+    <section class="tools-container">
+        <h2 class="section-title custom-container">Tools</h2>
+        <div class="title-border"></div>
+        <!-- tools 1 -->
 
-            <!-- tools2 -->
-            @foreach ($tools as $tool)
-                <div class="tools custom-container">
-                    <!-- img -->
-                    <div class="tool-img">
-                        <img src="{{ asset($tool->image_url) }}" alt="" />
-                    </div>
-                    <!-- content -->
-                    <div class="tools-content">
-                        <h2>
-                            {{ $tool->title}}
-                        </h2>
-                        <p>
-                            {!! $tool->descripton !!}
+        <!-- tools2 -->
 
-                        </p>
-                        <a class="download-btn" href="#" onclick="openModal()">
-                            <span class="btn-content">
-                                Download Now
-                                <img src="{{asset('frontend/images/icons/downloadicon.svg')}} " alt="Download Icon" />
-                            </span>
-                        </a>
-                    </div>
+        @foreach ($tools as $tool)
+            <div class="tools custom-container">
+                <div class="tool-img">
+                    <img src="{{ asset($tool->image_url) }}" alt="Tool Image" />
                 </div>
-            @endforeach
-        </section>
+                <div class="tools-content">
+                    <h2>{{ $tool->title }}</h2>
+                    <p>{!! $tool->description !!}</p>
+                    <a class="download-btn" href="#"
+                        onclick="openModal('{{ $tool->id }}', '{{ $tool->title }}','{{ $tool->description }}', '{{ $tool->image_url }}')">
+                        <span class="btn-content">
+                            Download Now
+                            <img src="{{ asset('frontend/images/icons/downloadicon.svg') }}" alt="Download Icon" />
+                        </span>
+                    </a>
+                </div>
+            </div>
+        @endforeach
 
-     <!-- modal  -->
 
+    </section>
+
+
+
+    <!-- modal  -->
+    <!-- Modal -->
+    <div id="downloadModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <!-- Dynamic Image -->
+                <div class="modal-image">
+                    <img id="modal-tool-image" src="" alt="Tool Image" />
+                </div>
+                <!-- Dynamic Content -->
+                <div class="modal-text">
+                    <h2 id="modal-tool-title"></h2>
+
+                    <p id="modal-tool-description" >  </p>
+                    <p>
+                        Enter your email to download this tool and optimize your business operations.
+                    </p>
+                    <!-- Subscription Section -->
+                    <form id="subscribeForm" class="modal-form">
+                        <input type="hidden" id="tool-id" name="tool_id" />
+                        <div class="form-group subscribe">
+                            <div class="input-container">
+                                <input type="email" id="email" name="email" placeholder="Enter your email"
+                                    required />
+                                <button type="submit">Download</button>
+                            </div>
+                        </div>
+                        <div class="form-group terms">
+                            <input type="checkbox" id="terms" name="terms" required />
+                            <label for="terms">
+                                I accept the <a href="#">terms and conditions</a>.
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
 
-@push('script')
 
-@endpush --}}
+@push('script')
+    <script>
+        // Open modal and populate tool details
+        function openModal(toolId, toolTitle, toolDescription, toolImage) {
+            $('#tool-id').val(toolId);
+            $('#modal-tool-title').text(toolTitle);
+            // $('#modal-tool-description').text(toolDescription);
+            $('#modal-tool-image').attr('src', '{{ asset('') }}' + toolImage);
+            $('#downloadModal').fadeIn();
+        }
+
+        // Close modal
+        function closeModal() {
+            $('#downloadModal').fadeOut();
+        }
+
+        // Handle form submission
+        $('#subscribeForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const toolId = $('#tool-id').val();
+            const email = $('#email').val();
+            const termsAccepted = $('#terms').is(':checked');
+
+            if (!termsAccepted) {
+                alert("You must accept the terms and conditions.");
+                return;
+            }
+
+            // AJAX request
+            $.ajax({
+                url: "{{ route('tools.download') }}",
+                type: "POST",
+                data: {
+                    tool_id: toolId,
+                    email: email,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Trigger file download
+                        window.location.href = response.file_url;
+                        closeModal();
+                    } else {
+                        alert(response.message || "An error occurred. Please try again.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error:", error);
+                    alert("Something went wrong. Please try again.");
+                }
+            });
+        });
+    </script>
+@endpush

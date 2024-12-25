@@ -20,6 +20,8 @@ Route::get('/services',[HomeController::class,'services'])->name('services');
 
 Route::get('/home-tools',[HomeController::class,'tools'])->name('home.tools');
 
+Route::post('/tools/download', [HomeController::class, 'download'])->name('tools.download');
+
 
 
 Route::get('/about-us',[HomeController::class,'about'])->name('about');

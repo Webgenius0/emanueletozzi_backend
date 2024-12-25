@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers\Web\Frontend;
 
-use App\Models\CMS;
-use App\Models\FAQ;
-use App\Models\Value;
-use App\Models\Contact;
-use App\Models\Process;
-use App\Models\ContactCMS;
-use Illuminate\Http\Request;
-use App\Mail\ContactFormMail;
-use App\Models\ClinicalRotation;
 use App\Http\Controllers\Controller;
+use App\Mail\ContactFormMail;
+use App\Models\CMS;
+use App\Models\Contact;
+use App\Models\ContactCMS;
 use App\Models\Expert;
+use App\Models\FAQ;
 use App\Models\Tool;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -22,54 +19,53 @@ class HomeController extends Controller
     {
         $cms = CMS::get();
 
-
-        $experties = Expert::where('status','active')->get();
-        return view('frontend.layouts.home', compact('cms','experties'));
+        $experties = Expert::where('status', 'active')->get();
+        return view('frontend.layouts.home', compact('cms', 'experties'));
     }
 
     public function about()
     {
         $cms = CMS::get();
-        $faqs = Faq::where('status','active')->get();
+        $faqs = Faq::where('status', 'active')->get();
         $professional_experts = Expert::limit(4)->get();
 
-        return view('frontend.layouts.about_us', compact('cms','faqs','professional_experts'));
+        return view('frontend.layouts.about_us', compact('cms', 'faqs', 'professional_experts'));
     }
 
     public function availablePreceptors()
     {
         $cms = CMS::get();
-        $faqs = Faq::where('status','active')->get();
-        return view('frontend.layouts.available-preceptor', compact('cms','faqs'));
+        $faqs = Faq::where('status', 'active')->get();
+        return view('frontend.layouts.available-preceptor', compact('cms', 'faqs'));
     }
 
     public function faq()
     {
         $cms = CMS::get();
-        $faqs = Faq::where('status','active')->get();
-        return view('frontend.layouts.faq', compact('cms','faqs'));
+        $faqs = Faq::where('status', 'active')->get();
+        return view('frontend.layouts.faq', compact('cms', 'faqs'));
     }
 
     public function studentForm()
     {
         $cms = CMS::get();
-        $faqs = Faq::where('status','active')->get();
+        $faqs = Faq::where('status', 'active')->get();
         $studentCms = ContactCMS::get();
-        return view('frontend.layouts.student-form', compact('cms','faqs','studentCms'));
+        return view('frontend.layouts.student-form', compact('cms', 'faqs', 'studentCms'));
     }
 
     public function becomePreceptor()
     {
         $cms = CMS::get();
-        $faqs = Faq::where('status','active')->get();
+        $faqs = Faq::where('status', 'active')->get();
         $studentCms = ContactCMS::get();
-        return view('frontend.layouts.become-preceptor', compact('cms','faqs','studentCms'));
+        return view('frontend.layouts.become-preceptor', compact('cms', 'faqs', 'studentCms'));
     }
     public function contactUs()
     {
         $studentCms = ContactCMS::get();
-        $faqs = Faq::where('status','active')->get();
-        return view('frontend.layouts.contact-us', compact('studentCms','faqs'));
+        $faqs = Faq::where('status', 'active')->get();
+        return view('frontend.layouts.contact-us', compact('studentCms', 'faqs'));
     }
 
     public function send(Request $request)
@@ -80,7 +76,6 @@ class HomeController extends Controller
             'number' => 'required|string|max:255',
             'message' => 'required|string',
         ]);
-
 
         try {
             // Save the data to the database
@@ -96,43 +91,70 @@ class HomeController extends Controller
 
     }
 
-
-    public function professional(){
+    public function professional()
+    {
 
         $experts = Expert::all();
         // dd($expert);
         return view('frontend.layouts.professional', compact('experts'));
     }
-    public function professional_details($id){
+    public function professional_details($id)
+    {
 
-        $expert = Expert::with('skills','experiences')->find($id);
+        $expert = Expert::with('skills', 'experiences')->find($id);
 
         $professional_experts = Expert::limit(4)->get();
 
         // dd($expert);
-        return view('frontend.layouts.professional-details', compact('expert','professional_experts'));
+        return view('frontend.layouts.professional-details', compact('expert', 'professional_experts'));
     }
-
-
 
     // services
 
-    public function services(){
+    public function services()
+    {
 
         $experts = Expert::all();
         // dd($expert);
         return view('frontend.layouts.services', compact('experts'));
     }
 
+    // services
 
-
-
-     // services
-
-     public function tools(){
+    public function tools()
+    {
 
         $tools = Tool::all();
         // dd($expert);
         return view('frontend.layouts.tools', compact('tools'));
+    }
+
+    public function download(Request $request)
+    {
+
+        // dd($request->all());
+        $request->validate([
+            'tool_id' => 'required|exists:tools,id',
+            'email' => 'required|email',
+        ]);
+
+        // Fetch the tool
+        $tool = Tool::find($request->tool_id);
+        // dd($tool);
+
+        $filePath = public_path($tool->excel_file);
+        // dd($filePath);
+
+        if (file_exists($filePath)) {
+            return response()->json([
+                'success' => true,
+                'file_url' => asset($tool->excel_file),
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'File not found.',
+        ]);
     }
 }

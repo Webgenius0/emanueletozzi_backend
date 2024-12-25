@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Mail\ContactFormMail;
 use App\Models\ClinicalRotation;
 use App\Http\Controllers\Controller;
+use App\Models\Expert;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -20,18 +21,18 @@ class HomeController extends Controller
     {
         $cms = CMS::get();
 
-       //$processes =  Process::get();
-       $processes =  Process::where('status','active')->get();
 
-
-        return view('frontend.layouts.home', compact('cms','processes'));
+        $experties = Expert::where('status','active')->get();
+        return view('frontend.layouts.home', compact('cms','experties'));
     }
 
     public function about()
     {
         $cms = CMS::get();
         $faqs = Faq::where('status','active')->get();
-        return view('frontend.layouts.about_us', compact('cms','faqs'));
+        $professional_experts = Expert::limit(4)->get();
+
+        return view('frontend.layouts.about_us', compact('cms','faqs','professional_experts'));
     }
 
     public function availablePreceptors()
@@ -92,5 +93,33 @@ class HomeController extends Controller
             return redirect()->back()->with('t-error', 'Message sending failed. Please try again later.');
         }
 
+    }
+
+
+    public function professional(){
+
+        $experts = Expert::all();
+        // dd($expert);
+        return view('frontend.layouts.professional', compact('experts'));
+    }
+    public function professional_details($id){
+
+        $expert = Expert::with('skills','experiences')->find($id);
+
+        $professional_experts = Expert::limit(4)->get();
+
+        // dd($expert);
+        return view('frontend.layouts.professional-details', compact('expert','professional_experts'));
+    }
+
+
+
+    // services
+
+    public function services(){
+
+        $experts = Expert::all();
+        // dd($expert);
+        return view('frontend.layouts.services', compact('experts'));
     }
 }

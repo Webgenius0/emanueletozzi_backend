@@ -16,6 +16,7 @@ class Expert extends Model
         'email',
         'phone',
         'description',
+        'image_url',
         'status'
     ];
 

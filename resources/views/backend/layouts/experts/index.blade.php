@@ -25,6 +25,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
+                                        <th>Image</th>
                                         <th>Designation</th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -89,6 +90,12 @@
                         {
                             data: 'name',
                             name: 'name',
+                            orderable: true,
+                            searchable: true
+                        },
+                        {
+                            data: 'image_url',
+                            name: 'image_url',
                             orderable: true,
                             searchable: true
                         },

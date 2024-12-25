@@ -30,6 +30,7 @@ class AboutUsPageController extends Controller
     {
         $request->validate([
             'title' => 'nullable',
+            'description' => 'nullable',
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -38,6 +39,7 @@ class AboutUsPageController extends Controller
         // Prepare data for update
         $updateData = [
             'title' => $request->title,
+            'description' => $request->description
         ];
 
         if ($request->image_url != null) {

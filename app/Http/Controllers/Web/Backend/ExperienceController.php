@@ -104,23 +104,33 @@ class ExperienceController extends Controller
 
     public function edit($id)
     {
-        return view('backend.layouts.experiences.edit', ['data' => Expert::find($id)]);
+        $experts = Expert::all();
+        return view('backend.layouts.experiences.edit', ['data' => Experience::find($id),'experts' => $experts]);
     }
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'designation' => 'required|string|max:255',
-            'experience_year' => 'required|integer',
-            'email' => 'required|email',
-            'phone' => 'nullable|string',
-            'description' => 'nullable|string',
+            'expert_id' => 'required|integer',
+            'title' => 'required|string|max:255',
+            'company_name' => 'required|string|max:255',
+            'year_range' => 'required|string|max:255',
+            'image_url' => 'required|max:255',
+
+
         ]);
 
-        $data = Expert::find($id);
+        $data = Experience::find($id);
 
-        $data->update($request->all());
+         // dd($request->all());
+         $imagePath = Helper::fileUpload($request->file( 'image_url' ), 'cms-image', $request->image_url);
 
+         $data->update([
+             'expert_id' => $request->expert_id,
+             'title' => $request->title,
+             'company_name' => $request->company_name,
+             'year_range' => $request->year_range,
+             'image_url' => $imagePath,
+         ]);
         return redirect()->route('experiences.index')->with('t-success', 'Data Updated Successfully');
     }
     /**

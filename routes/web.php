@@ -9,6 +9,16 @@ use App\Http\Controllers\Web\Frontend\NewsletterController;
 //});
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+
+Route::get('/professional',[HomeController::class,'professional'])->name('home.professional');
+Route::get('/professional-details/{id}',[HomeController::class,'professional_details'])->name('home.professional_details');
+
+
+
+Route::get('/services',[HomeController::class,'services'])->name('services');
+
+
+
 Route::get('/about-us',[HomeController::class,'about'])->name('about');
 Route::get('/available-preceptors',[HomeController::class,'availablePreceptors'])->name('available-preceptors');
 Route::get('/faq-page',[HomeController::class,'faq'])->name('faq.page');

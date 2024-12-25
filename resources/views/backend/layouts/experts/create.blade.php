@@ -36,6 +36,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group row mb-3">
+                                    <div class="col">
+                                        <label class="form-lable">Image:</label>
+                                        <input class="form-control dropify @error('image_url') is-invalid @enderror"
+                                            type="file"
+                                            name="image_url">
+
+                                        @error('image_url')
+                                            <div style="color: red;">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
@@ -146,6 +159,6 @@
             $('.select2').select2();
         });
 
-      
+
     </script>
 @endpush

@@ -51,7 +51,7 @@
                                         @enderror
                                     </div>
                                 </div>
-
+--}}
                                 <div class="form-group row mb-3">
                                     <div class="col">
                                         <label class="form-lable">Description</label>
@@ -62,7 +62,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div> --}}
+                                </div>
                                 <div class="form-group row mb-3">
                                     <div class="col">
                                         <label class="form-lable">Image:</label>

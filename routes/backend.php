@@ -64,22 +64,22 @@ Route::middleware('auth')->group(function () {
     });
 
     // Route for Process Controller
-    Route::get('/process', [ProcessController::class, 'index'])->name('process.index');
-    Route::get('/process/create', [ProcessController::class, 'create'])->name('process.create');
-    Route::post('/process/store', [ProcessController::class, 'store'])->name('process.store');
-    Route::get('/process/edit/{id}', [ProcessController::class, 'edit'])->name('process.edit');
-    Route::post('/process/update/{id}', [ProcessController::class, 'update'])->name('process.update');
-    Route::delete('/process/delete/{id}', [ProcessController::class, 'destroy'])->name('process.destroy');
-    Route::get('/process/status/{id}', [ProcessController::class, 'status'])->name('process.status');
+    // Route::get('/process', [ProcessController::class, 'index'])->name('process.index');
+    // Route::get('/process/create', [ProcessController::class, 'create'])->name('process.create');
+    // Route::post('/process/store', [ProcessController::class, 'store'])->name('process.store');
+    // Route::get('/process/edit/{id}', [ProcessController::class, 'edit'])->name('process.edit');
+    // Route::post('/process/update/{id}', [ProcessController::class, 'update'])->name('process.update');
+    // Route::delete('/process/delete/{id}', [ProcessController::class, 'destroy'])->name('process.destroy');
+    // Route::get('/process/status/{id}', [ProcessController::class, 'status'])->name('process.status');
 
-    // Route for SuccessGuideController
-    Route::get('/clinical-rotation', [SuccessGuideController::class, 'index'])->name('clinical.index');
-    Route::get('/clinical-rotation/create', [SuccessGuideController::class, 'create'])->name('clinical.create');
-    Route::post('/clinical-rotation/store', [SuccessGuideController::class, 'store'])->name('clinical.store');
-    Route::get('/clinical-rotation/edit/{id}', [SuccessGuideController::class, 'edit'])->name('clinical.edit');
-    Route::post('/clinical-rotation/update/{id}', [SuccessGuideController::class, 'update'])->name('clinical.update');
-    Route::delete('/clinical-rotation/delete/{id}', [SuccessGuideController::class, 'destroy'])->name('clinical.destroy');
-    Route::get('/clinical-rotation/status/{id}', [SuccessGuideController::class, 'status'])->name('clinical.status');
+    // // Route for SuccessGuideController
+    // Route::get('/clinical-rotation', [SuccessGuideController::class, 'index'])->name('clinical.index');
+    // Route::get('/clinical-rotation/create', [SuccessGuideController::class, 'create'])->name('clinical.create');
+    // Route::post('/clinical-rotation/store', [SuccessGuideController::class, 'store'])->name('clinical.store');
+    // Route::get('/clinical-rotation/edit/{id}', [SuccessGuideController::class, 'edit'])->name('clinical.edit');
+    // Route::post('/clinical-rotation/update/{id}', [SuccessGuideController::class, 'update'])->name('clinical.update');
+    // Route::delete('/clinical-rotation/delete/{id}', [SuccessGuideController::class, 'destroy'])->name('clinical.destroy');
+    // Route::get('/clinical-rotation/status/{id}', [SuccessGuideController::class, 'status'])->name('clinical.status');
 
     //!Route for ToolController for Tool Page
     Route::controller(ToolController::class)->group(function () {
@@ -159,13 +159,13 @@ Route::middleware('auth')->group(function () {
 
 
     // Route for Faq Controller
-    Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
-    Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');
-    Route::post('/faq/store', [FaqController::class, 'store'])->name('faq.store');
-    Route::get('/faq/edit/{id}', [FaqController::class, 'edit'])->name('faq.edit');
-    Route::post('/faq/update/{id}', [FaqController::class, 'update'])->name('faq.update');
-    Route::delete('/faq/delete/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
-    Route::get('/faq/status/{id}', [FaqController::class, 'status'])->name('faq.status');
+    // Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+    // Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.create');
+    // Route::post('/faq/store', [FaqController::class, 'store'])->name('faq.store');
+    // Route::get('/faq/edit/{id}', [FaqController::class, 'edit'])->name('faq.edit');
+    // Route::post('/faq/update/{id}', [FaqController::class, 'update'])->name('faq.update');
+    // Route::delete('/faq/delete/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
+    // Route::get('/faq/status/{id}', [FaqController::class, 'status'])->name('faq.status');
 
     Route::controller(LandingPageController::class)->group(function () {
 

@@ -6,12 +6,13 @@
 
     <!-- Nav Links -->
     <ul class="nav-links">
-        <li><a href="{{route('home')}}" class="active">Home</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="tools.html">Tools</a></li>
-        <li><a href="articles.html">Articles</a></li>
+        <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
+        <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
+        <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
+        <li><a href="tools.html" class="{{ request()->is('tools.html') ? 'active' : '' }}">Tools</a></li>
+        <li><a href="articles.html" class="{{ request()->is('articles.html') ? 'active' : '' }}">Articles</a></li>
     </ul>
+
 
     <!-- Buttons -->
     <div class="nav-buttons">
@@ -37,52 +38,3 @@
     </div>
 </nav>
 <!-- Navbar ends -->
-
-<!-- Header Area Starts -->
-<header>
-    <!-- Sidebar starts -->
-    <ul class="sidebar" id="sidebar">
-        <li><a href="{{route('home')}}" class="active">Home</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="tools.html">Tools</a></li>
-        <li><a href="articles.html">Articles</a></li>
-    </ul>
-    <!-- Sidebar ends -->
-
-    <!-- Hero Section Starts -->
-    <div class="hero">
-        <div class="custom-container hero-container">
-            <!-- Hero Content -->
-
-            @php
-                $cms = App\Models\Cms::get();
-                // dd($cms);
-            @endphp
-
-
-            <div class="hero-home-heading">
-                <h2>
-                    {{ $cms ?  $cms[0]->title : ''}}
-                </h2>
-                <p>
-
-                    {!! $cms ?  $cms[0]->description : '' !!}
-                </p>
-                <div class="hero-btn">
-                    <a class="primary-btn" href="#">
-                        <span class="primary-btn-content">
-                            Get in touch
-                            <img src="  {{asset('frontend/images/icons/arrow-icon.svg')}} " alt="arrow Icon" />
-                        </span>
-                    </a>
-                    <a class="secondary-btn" href="services.html">Our Service</a>
-                </div>
-            </div>
-            <!-- Hero Image -->
-            <div class="hero-home-img">
-                <img src=" {{ $cms ? asset( $cms[0]->image_url ) : ''  }} " alt="Hero" />
-            </div>
-        </div>
-    </div>
-</header>

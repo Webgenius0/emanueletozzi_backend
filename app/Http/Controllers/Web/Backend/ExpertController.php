@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Web\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\Expert;
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use App\Http\Controllers\Controller;
 
 class ExpertController extends Controller
 {
@@ -34,6 +35,9 @@ class ExpertController extends Controller
 
                     return $status;
                 })
+                ->editColumn('image_url', function ($data) {
+                    return '<img src="' . asset($data->image_url) . '" alt="image" style="width: 100px; height: 100px;">';
+                })
                 ->addColumn('action', function ($data) {
 
                     return '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -45,7 +49,7 @@ class ExpertController extends Controller
                                 </a>
                                 </div>';
                 })
-                ->rawColumns(['status', 'action'])
+                ->rawColumns(['status','image_url', 'action'])
                 ->make(true);
         }
 
@@ -77,8 +81,20 @@ class ExpertController extends Controller
             'description' => 'nullable|string',
         ]);
         // dd($request->all());
+        $imagePath = Helper::fileUpload($request->file( 'image_url' ), 'cms-image', $request->image_url);
 
-        Expert::create($request->only(['name', 'designation', 'experience_year', 'email', 'phone', 'description']));
+        $data = Expert::create([
+            'name' => $request->name,
+            'designation' => $request->designation,
+            'experience_year' => $request->experience_year,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'image_url' => $imagePath,
+            'status' => 'active',
+
+        ]);
+
 
         return redirect()->route('experts.index')->with('t-success', 'Data Created Successfully');
     }
@@ -107,8 +123,20 @@ class ExpertController extends Controller
 
         $data = Expert::find($id);
 
-        $data->update($request->all());
+         // dd($request->all());
+         $imagePath = Helper::fileUpload($request->file( 'image_url' ), 'cms-image', $request->image_url);
 
+         $data->update([
+             'name' => $request->name,
+             'designation' => $request->designation,
+             'experience_year' => $request->experience_year,
+             'email' => $request->email,
+             'phone' => $request->phone,
+             'description' => $request->description,
+             'image_url' => $imagePath,
+             'status' => 'active',
+
+         ]);
         return redirect()->route('experts.index')->with('t-success', 'Data Updated Successfully');
     }
     /**

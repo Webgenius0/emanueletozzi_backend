@@ -7,6 +7,55 @@
 
 @section('content')
 
+
+    <!-- Header Area Starts -->
+    <header>
+        <!-- Sidebar starts -->
+        <ul class="sidebar" id="sidebar">
+            <li><a href="{{ route('home') }}" class="active">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="tools.html">Tools</a></li>
+            <li><a href="articles.html">Articles</a></li>
+        </ul>
+        <!-- Sidebar ends -->
+
+        <!-- Hero Section Starts -->
+        <div class="hero">
+            <div class="custom-container hero-container">
+                <!-- Hero Content -->
+
+                @php
+                    $cms = App\Models\Cms::get();
+                    // dd($cms);
+                @endphp
+
+
+                <div class="hero-home-heading">
+                    <h2>
+                        {{ $cms ? $cms[0]->title : '' }}
+                    </h2>
+                    <p>
+                        {!! $cms ? $cms[0]->description : '' !!}
+                    </p>
+                    <div class="hero-btn">
+                        <a class="primary-btn" href="#">
+                            <span class="primary-btn-content">
+                                Get in touch
+                                <img src="  {{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
+                            </span>
+                        </a>
+                        <a class="secondary-btn" href="services.html">Our Service</a>
+                    </div>
+                </div>
+                <!-- Hero Image -->
+                <div class="hero-home-img">
+                    <img src=" {{ $cms ? asset($cms[0]->image_url) : '' }} " alt="Hero" />
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- professionals section starts -->
     <section class="professionals-container custom-container">
         <div class="professionals-heading">
@@ -17,55 +66,40 @@
 
         <div class="professionals-profile">
             <!-- Professional 1 Card -->
-            <a href="professional-details.html" class="professional-card">
-                <div class="professional-img">
-                    <img src=" {{asset('frontend/images/pro1.svg')}}" alt="Professional 1" />
-                </div>
-                <div class="professional-info">
-                    <h3 class="professional-name">John Doe</h3>
-                    <p class="professional-title">Software Engineer</p>
-                </div>
-            </a>
 
-            <!-- Professional 2 Card -->
-            <a href="professional-details.html" class="professional-card">
-                <div class="professional-img">
-                    <img src="{{asset('frontend/images/pro2.svg')}}" alt="Professional 2" />
-                </div>
-                <div class="professional-info">
-                    <h3 class="professional-name">Jane Smith</h3>
-                    <p class="professional-title">UX Designer</p>
-                </div>
-            </a>
+            @if (count($experties) > 0)
 
-            <!-- Professional 3 Card -->
-            <a href="professional-details.html" class="professional-card">
-                <div class="professional-img">
-                    <img src="{{asset('frontend/images/pro3.svg')}}" alt="Professional 3" />
-                </div>
-                <div class="professional-info">
-                    <h3 class="professional-name">Alex Johnson</h3>
-                    <p class="professional-title">Project Manager</p>
-                </div>
-            </a>
+                @foreach ($experties as $expert)
+                    <a href="{{ route('home.professional_details', $expert->id) }}" class="professional-card">
+                        <div class="professional-img">
+                            <img src=" {{ $expert ? asset($expert->image_url) : '' }} " alt="Hero" />
 
-            <!-- Professional 4 Card -->
-            <a href="professional-details.html" class="professional-card">
-                <div class="professional-img">
-                    <img src="{{asset('frontend/images/pro4.svg')}}" alt="Professional 4" />
-                </div>
-                <div class="professional-info">
-                    <h3 class="professional-name">Emily Davis</h3>
-                    <p class="professional-title">Data Scientist</p>
-                </div>
-            </a>
+                        </div>
+                        <div class="professional-info">
+                            <h3 class="professional-name">
+                                {{ $expert ? $expert->name : '' }}
+                            </h3>
+                            <p class="professional-title">
+                                {{ $expert ? $expert->designation : '' }}
+                            </p>
+                        </div>
+                    </a>
+                @endforeach
+            @else
+                <p>No data found</p>
+
+            @endif
+
+
+
+
         </div>
 
         <div class="view-btn-container">
-            <a class="view-btn" href="professionals.html">
+            <a class="view-btn" href="{{ route('home.professional') }}">
                 <span class="primary-btn-content">
                     View all member
-                    <img src="{{asset('frontend/images/icons/arrow-icon.svg')}} " alt="arrow Icon" />
+                    <img src="{{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
                 </span>
             </a>
         </div>
@@ -84,28 +118,38 @@
                     achieve their business goals.
                 </p>
             </div>
+
+            @php
+                $client_reviews = App\Models\ClientReview::get();
+                // dd($client_reviews);
+            @endphp
+
+
             <div class="testimonial">
                 <!-- testimonial img -->
-                <div class="testimonial-img">
-                    <img src="./assets/images/client-img.svg" alt="Client Image" />
-                </div>
+
                 <!-- testimonial content -->
-                <div class="testimonial-content">
-                    <p class="testimonial-text">
-                        One Startup.IT team surpassed our expectations with their
-                        flawless cloud migration. Their proactive approach and
-                        meticulous attention to detail minimized operational
-                        disruptions. We're extremely satisfied with the outstanding
-                        results.
-                    </p>
-                    <h3 class="customer-name">Alzari Zocef</h3>
-                    <p class="customer-position">IT Director, Softvance</p>
-                    <!-- arrow icons -->
-                    <div class="testimonial-arrows">
-                        <img src="./assets/images/icons/left-arrow.svg" alt="Left Arrow" />
-                        <img src="./assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                @foreach ($client_reviews as $review)
+                    <div class="testimonial-img">
+                        <img src="{{ $review->image_url }}" alt="Client Image" />
                     </div>
-                </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            {!! $review ? $review->description : '' !!}
+                        </p>
+                        <h3 class="customer-name mt-2">
+                            {{ $review ? $review->title : '' }}
+                        </h3>
+                        <p class="customer-position">
+                            {{ $review ? $review->sub_title : '' }}
+                        </p>
+                        <!-- arrow icons -->
+                        <div class="testimonial-arrows">
+                            <img src="./assets/images/icons/left-arrow.svg" alt="Left Arrow" />
+                            <img src="./assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

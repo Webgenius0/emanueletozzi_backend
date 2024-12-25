@@ -13,5 +13,7 @@
 <link rel="stylesheet" href="{{asset('frontend/css/common-header.css')}} " />
 <link rel="stylesheet" href="{{asset('frontend/css/commitment.css')}}" />
 <link rel="stylesheet" href="{{asset('frontend/css/pricing-card.css')}}" />
+<link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}  />
+
 
 @stack('style')

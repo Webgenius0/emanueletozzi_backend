@@ -9,7 +9,7 @@
         <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
         <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
         <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
-        <li><a href="tools.html" class="{{ request()->is('tools.html') ? 'active' : '' }}">Tools</a></li>
+        <li><a href="{{route('home.tools')}}" class="{{ request()->is('home.tools') ? 'active' : '' }}">Tools</a></li>
         <li><a href="articles.html" class="{{ request()->is('articles.html') ? 'active' : '' }}">Articles</a></li>
     </ul>
 

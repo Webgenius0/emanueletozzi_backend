@@ -35,7 +35,7 @@
   <!-- header area ends -->
 
   <!-- main area starts -->
-  <main>
+
     <!-- services 2 cards -->
     <section class="two-pricing-card-container">
       <h2 class="section-title">Services</h2>
@@ -284,7 +284,7 @@
         </div>
       </div>
     </section>
-  </main>
+
 
 @endsection
 

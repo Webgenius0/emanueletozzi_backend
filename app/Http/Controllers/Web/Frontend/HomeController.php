@@ -13,6 +13,7 @@ use App\Mail\ContactFormMail;
 use App\Models\ClinicalRotation;
 use App\Http\Controllers\Controller;
 use App\Models\Expert;
+use App\Models\Tool;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -121,5 +122,17 @@ class HomeController extends Controller
         $experts = Expert::all();
         // dd($expert);
         return view('frontend.layouts.services', compact('experts'));
+    }
+
+
+
+
+     // services
+
+     public function tools(){
+
+        $tools = Tool::all();
+        // dd($expert);
+        return view('frontend.layouts.tools', compact('tools'));
     }
 }

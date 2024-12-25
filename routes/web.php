@@ -18,6 +18,9 @@ Route::get('/professional-details/{id}',[HomeController::class,'professional_det
 Route::get('/services',[HomeController::class,'services'])->name('services');
 
 
+Route::get('/home-tools',[HomeController::class,'tools'])->name('home.tools');
+
+
 
 Route::get('/about-us',[HomeController::class,'about'])->name('about');
 Route::get('/available-preceptors',[HomeController::class,'availablePreceptors'])->name('available-preceptors');

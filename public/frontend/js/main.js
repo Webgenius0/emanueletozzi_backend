@@ -1,62 +1,49 @@
-
-
-
-function dropDown(){
-    let dropDown = document.querySelector('.dropDownMenu');
-    let menu = document.querySelector('.more--drop--down');
-
-    if(dropDown && menu){
-        dropDown.addEventListener('click', function(event) {
-            menu.classList.toggle('active');
-            event.stopPropagation();
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!dropDown.contains(event.target) && !menu.contains(event.target)) {
-                menu.classList.add('active');
-            }
-        });
+// Show or Hide Sidebar
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    // Toggle sidebar visibility
+    sidebar.classList.toggle('show');
+  
+    // Toggle icon visibility
+    if (sidebar.classList.contains('show')) {
+      hamburgerIcon.style.display = 'none';
+      closeIcon.style.display = 'inline';
+    } else {
+      hamburgerIcon.style.display = 'inline';
+      closeIcon.style.display = 'none';
     }
-
-}
-
-dropDown()
-
-
-
-
-
-function sideNav (){
-    let menuCloser = document.querySelector('.harmburg--icon');
-    let menuMain = document.querySelector('.phone--navbar');
-    let body = document.querySelector('body');
-
-    if(menuCloser && menuMain && body){
-
-
-        menuCloser.addEventListener('click', function(event) {
-            menuMain.classList.toggle('activess');
-            if (menuMain.classList.contains('activess')) {
-                body.style.overflowY = "hidden";
-            } else {
-                body.style.overflowY = "auto";
-            }
-            event.stopPropagation(); // Correctly stop propagation
-        });
-
-        document.addEventListener('click', function(event) {
-            if (!menuCloser.contains(event.target) && !menuMain.contains(event.target)) {
-                menuMain.classList.remove('activess');
-                body.style.overflowY = "auto";
-            }
-        });
-
+  }
+  
+  // Hide Sidebar
+  function hideSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    
+    sidebar.classList.remove('show');
+    hamburgerIcon.style.display = 'inline';
+    closeIcon.style.display = 'none';
+  }
+  
+//   modal
+// Open the modal
+function openModal() {
+    document.getElementById("downloadModal").style.display = "block";
+  }
+  
+  // Close the modal
+  function closeModal() {
+    document.getElementById("downloadModal").style.display = "none";
+  }
+  
+  // Close the modal if clicked outside of it
+  window.onclick = function (event) {
+    const modal = document.getElementById("downloadModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
     }
-
-}
-
-sideNav()
-
-
-
-
+  };
+  

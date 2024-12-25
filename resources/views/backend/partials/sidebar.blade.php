@@ -212,7 +212,7 @@
         </li>
 
 
-        <li class="menu-item {{ Request::routeIs('experts.*') ? 'active open' : '' }}">
+        <li class="menu-item {{ Request::routeIs('experts.*') || Request::routeIs('skills.*') || Request::routeIs('experiences.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
                 <div data-i18n="Layouts">Experties Page</div>
@@ -234,6 +234,12 @@
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('skills.index') || Request::routeIs('skills.edit') || Request::routeIs('skills.create') || Request::routeIs('skills.update') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('skills.index') }}">Skills</a></li>
+
+            </ul>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('experiences.index') || Request::routeIs('experiences.edit') || Request::routeIs('experiences.create') || Request::routeIs('experiences.update') ? 'active' : '' }}"><a
+                        class="menu-link" href="{{ route('experiences.index') }}">Experiences</a></li>
 
             </ul>
         </li>

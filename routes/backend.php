@@ -1,28 +1,28 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Web\Backend\FAQController;
 use App\Http\Controllers\Web\Backend\BlogController;
-use App\Http\Controllers\Web\Backend\ToolController;
-use App\Http\Controllers\Web\Backend\ExpertController;
+use App\Http\Controllers\Web\Backend\CMS\AboutUsPage\AboutUsPageController;
+use App\Http\Controllers\Web\Backend\CMS\ContactUsPage\ContactUsPageController;
+use App\Http\Controllers\Web\Backend\CMS\LandingPage\ClientReviewController;
+use App\Http\Controllers\Web\Backend\CMS\LandingPage\LandingPageController;
+use App\Http\Controllers\Web\Backend\CMS\LandingPage\ProcessController;
+use App\Http\Controllers\Web\Backend\CMS\LandingPage\SuccessGuideController;
 use App\Http\Controllers\Web\Backend\ContactUsController;
 use App\Http\Controllers\Web\Backend\DashboardController;
+use App\Http\Controllers\Web\Backend\ExperienceController;
+use App\Http\Controllers\Web\Backend\ExpertController;
+use App\Http\Controllers\Web\Backend\FAQController;
 use App\Http\Controllers\Web\Backend\NewsletterListController;
-use App\Http\Controllers\Web\Backend\Settings\ProfileController;
 use App\Http\Controllers\Web\Backend\Settings\DynamicPageController;
 use App\Http\Controllers\Web\Backend\Settings\MailSettingController;
+use App\Http\Controllers\Web\Backend\Settings\ProfileController;
 use App\Http\Controllers\Web\Backend\Settings\StripeSettingController;
 use App\Http\Controllers\Web\Backend\Settings\SystemSettingController;
-use App\Http\Controllers\Web\Backend\CMS\LandingPage\ProcessController;
-use App\Http\Controllers\Web\Backend\CMS\AboutUsPage\AboutUsPageController;
-use App\Http\Controllers\Web\Backend\CMS\LandingPage\LandingPageController;
-use App\Http\Controllers\Web\Backend\CMS\LandingPage\ClientReviewController;
-use App\Http\Controllers\Web\Backend\CMS\LandingPage\SuccessGuideController;
-use App\Http\Controllers\Web\Backend\CMS\ContactUsPage\ContactUsPageController;
 use App\Http\Controllers\Web\Backend\SkillController;
+use App\Http\Controllers\Web\Backend\ToolController;
+use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
-
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -63,7 +63,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/client-reviews/status/{id}', 'status')->name('client-reviews.status');
     });
 
-
     // Route for Process Controller
     Route::get('/process', [ProcessController::class, 'index'])->name('process.index');
     Route::get('/process/create', [ProcessController::class, 'create'])->name('process.create');
@@ -85,12 +84,10 @@ Route::middleware('auth')->group(function () {
     //!Route for ToolController for Tool Page
     Route::controller(ToolController::class)->group(function () {
 
+        /// Emanueltozzi code start
 
-         /// Emanueltozzi code start
-
-         Route::get('/tools/header', 'toolHeader')->name('tools.header');
-         Route::patch('/tools/header', 'toolHeaderContentImage')->name('tools.header.update');
-
+        Route::get('/tools/header', 'toolHeader')->name('tools.header');
+        Route::patch('/tools/header', 'toolHeaderContentImage')->name('tools.header.update');
 
         Route::get('/tools', 'index')->name('tools.index');
         Route::get('/tools/create', 'create')->name('tools.create');
@@ -104,12 +101,10 @@ Route::middleware('auth')->group(function () {
     //!Route for BlogController for Blog Page
     Route::controller(BlogController::class)->group(function () {
 
+        /// Emanueltozzi code start
 
-         /// Emanueltozzi code start
-
-         Route::get('/blogs/header', 'blogHeader')->name('blogs.header');
-         Route::patch('/blogs/header', 'blogHeaderContentImage')->name('blogs.header.update');
-
+        Route::get('/blogs/header', 'blogHeader')->name('blogs.header');
+        Route::patch('/blogs/header', 'blogHeaderContentImage')->name('blogs.header.update');
 
         Route::get('/blogs', 'index')->name('blogs.index');
         Route::get('/blogs/create', 'create')->name('blogs.create');
@@ -123,7 +118,7 @@ Route::middleware('auth')->group(function () {
     //!Route for ExpertsController for Blog Page
     Route::controller(ExpertController::class)->group(function () {
 
-         /// Emanueltozzi code start
+        /// Emanueltozzi code start
 
         Route::get('/experts', 'index')->name('experts.index');
         Route::get('/experts/create', 'create')->name('experts.create');
@@ -134,19 +129,31 @@ Route::middleware('auth')->group(function () {
         Route::get('/experts/status/{id}', 'status')->name('experts.status');
     });
 
-
     Route::controller(SkillController::class)->group(function () {
 
         /// Emanueltozzi code start
 
-       Route::get('/skills', 'index')->name('skills.index');
-       Route::get('/skills/create', 'create')->name('skills.create');
-       Route::post('/skills/store', 'store')->name('skills.store');
-       Route::get('/skills/edit/{id}', 'edit')->name('skills.edit');
-       Route::post('/skills/update/{id}', 'update')->name('skills.update');
-       Route::delete('/skills/delete/{id}', 'destroy')->name('skills.destroy');
-       Route::get('/skills/status/{id}', 'status')->name('skills.status');
-   });
+        Route::get('/skills', 'index')->name('skills.index');
+        Route::get('/skills/create', 'create')->name('skills.create');
+        Route::post('/skills/store', 'store')->name('skills.store');
+        Route::get('/skills/edit/{id}', 'edit')->name('skills.edit');
+        Route::post('/skills/update/{id}', 'update')->name('skills.update');
+        Route::delete('/skills/delete/{id}', 'destroy')->name('skills.destroy');
+        Route::get('/skills/status/{id}', 'status')->name('skills.status');
+    });
+
+    Route::controller(ExperienceController::class)->group(function () {
+
+        /// Emanueltozzi code start
+
+        Route::get('/experiences', 'index')->name('experiences.index');
+        Route::get('/experiences/create', 'create')->name('experiences.create');
+        Route::post('/experiences/store', 'store')->name('experiences.store');
+        Route::get('/experiences/edit/{id}', 'edit')->name('experiences.edit');
+        Route::post('/experiences/update/{id}', 'update')->name('experiences.update');
+        Route::delete('/experiences/delete/{id}', 'destroy')->name('experiences.destroy');
+        Route::get('/experiences/status/{id}', 'status')->name('experiences.status');
+    });
 
 
 
@@ -160,7 +167,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/faq/delete/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
     Route::get('/faq/status/{id}', [FaqController::class, 'status'])->name('faq.status');
 
-
     Route::controller(LandingPageController::class)->group(function () {
 
         /// Emanueltozzi code start
@@ -168,18 +174,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/cms/landing-page/banner', 'banner')->name('cms.landing-page.banner');
         Route::patch('/cms/landing-page/banner', 'bannerContentImage')->name('cms.landing-page.banner.update');
 
-
         Route::get('/cms/landing-page/experties', 'experties')->name('cms.landing-page.experties');
         Route::patch('/cms/landing-page/experties', 'expertiesContent')->name('cms.landing-page.experties.update');
-
 
         Route::get('/cms/landing-page/client-review-header', 'clientReviewHeader')->name('cms.landing-page.client-review-header');
         Route::patch('/cms/landing-page/client-review-header', 'clientReviewHeaderContent')->name('cms.landing-page.client-review-header.update');
 
         Route::get('/cms/landing-page/contact-us-header', 'contactUsHeader')->name('cms.landing-page.contact-us-header');
         Route::patch('/cms/landing-page/contact-us-header', 'contactUsHeaderContent')->name('cms.landing-page.contact-us-header.update');
-
-
 
         // Route::get('/cms/landing-page/ideal-preceptor', 'idealPreceptor')->name('cms.landing-page.ideal-preceptor');
         // Route::patch('/cms/landing-page/ideal-preceptor', 'idealPreceptorContent')->name('cms.landing-page.ideal-preceptor.update');

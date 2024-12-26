@@ -10,7 +10,7 @@
         <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
         <li><a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'active' : '' }}">Services</a></li>
         <li><a href="{{route('home.tools')}}" class="{{ request()->is('home.tools') ? 'active' : '' }}">Tools</a></li>
-        <li><a href="articles.html" class="{{ request()->is('articles.html') ? 'active' : '' }}">Articles</a></li>
+        <li><a href="{{route('home.articles')}}" class="{{ request()->is('home.articles') ? 'active' : '' }}">Articles</a></li>
     </ul>
 
 
@@ -19,7 +19,7 @@
         <a class="phone-btn" href="#">
             <img class="phone-icon" src="{{asset('frontend/images/icons/phone-icon.svg')}} " alt="Phone Icon" />
         </a>
-        <a class="primary-btn" href="#">Contact Us</a>
+        <a class="primary-btn" href="{{route('conatct-us')}}">Contact Us</a>
     </div>
 
     <!-- Right: Hamburger Menu (This will change to X when sidebar is open) -->

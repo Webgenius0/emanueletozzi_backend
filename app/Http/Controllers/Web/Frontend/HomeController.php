@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Web\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ContactFormMail;
+use App\Models\Blog;
 use App\Models\CMS;
 use App\Models\Contact;
 use App\Models\ContactCMS;
 use App\Models\Expert;
 use App\Models\FAQ;
+use App\Models\Newsletter;
 use App\Models\Tool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -84,7 +86,7 @@ class HomeController extends Controller
             // Send the email
             Mail::to('admin@gmail.com')->send(new ContactFormMail($data));
 
-            return redirect()->back()->with('t-success', 'Your message has been sent successfully!');
+            return redirect()->back()->with('success', 'Your message has been sent successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('t-error', 'Message sending failed. Please try again later.');
         }
@@ -145,6 +147,10 @@ class HomeController extends Controller
         $filePath = public_path($tool->excel_file);
         // dd($filePath);
 
+        $newsletter = new  Newsletter;
+        $newsletter->email = $request->email;
+        $newsletter->save();
+
         if (file_exists($filePath)) {
             return response()->json([
                 'success' => true,
@@ -156,5 +162,28 @@ class HomeController extends Controller
             'success' => false,
             'message' => 'File not found.',
         ]);
+    }
+
+
+
+
+
+    // blogs
+
+    public function article_lists()
+    {
+        $blogs = Blog::all();
+        return view('frontend.layouts.blog_lists', compact('blogs'));
+    }
+    public function articles()
+    {
+        $blogs = Blog::limit(4)->get();
+        return view('frontend.layouts.blogs', compact('blogs'));
+    }
+
+    public function articles_details($id)
+    {
+        $blog = Blog::find($id);
+        return view('frontend.layouts.blog-details', compact('blog'));
     }
 }

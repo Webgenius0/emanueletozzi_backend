@@ -22,7 +22,7 @@
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
-                                <input type="hidden" name="id" value="7">
+                                <input type="hidden" name="id" value="3">
 
                                 <div class="form-group row mb-3">
                                     <div class="col">

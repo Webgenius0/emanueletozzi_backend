@@ -80,7 +80,10 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
+            'additional_description' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'detail_image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
 
 
@@ -89,10 +92,14 @@ class BlogController extends Controller
 
          // Image store in local
          $clientImage = Helper::fileUpload( $request->file( 'image_url' ), 'tools', $request->image_url );
+         $blogsImage = Helper::fileUpload( $request->file( 'detail_image_url' ), 'tools', $request->detail_image_url );
+
 
          $data->image_url = $clientImage;
+         $data->detail_image_url = $blogsImage;
 
         $data->description = $request->description;
+        $data->additional_description = $request->additional_description;
 
         $data->save();
 

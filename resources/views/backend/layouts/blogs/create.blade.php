@@ -38,6 +38,22 @@
                           </div>
 
                           <div class="row">
+                            <div class="col-12">
+                                <div class="form-group row mb-3">
+                                    <div class="col">
+                                        <label class="form-lable required">Blog details Image:</label>
+                                        <input class="form-control dropify @error('detail_image_url') is-invalid @enderror"
+                                               type="file"
+                                               name="detail_image_url">
+
+                                        @error('detail_image_url')
+                                        <div style="color: red;">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                          <div class="row">
                               <div class="col-12">
                                   <div class="form-group row mb-3">
                                       <div class="col">
@@ -55,7 +71,21 @@
                             <div class="col-12">
                                 <div class="form-group row mb-3">
                                     <div class="col">
-                                        <label class="form-lable required"> Image:</label>
+                                        <label class="form-lable required">Additional Description:</label>
+                                        <textarea class="form-control @error('additional_description') is-invalid @enderror" name="additional_description" id="additional_description">{{ old('additional_description') }}</textarea>
+                                        @error('additional_description')
+                                        <div style="color: red;">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                          <div class="row">
+                            <div class="col-12">
+                                <div class="form-group row mb-3">
+                                    <div class="col">
+                                        <label class="form-lable required"> Description Image:</label>
                                         <input class="form-control dropify @error('image_url') is-invalid @enderror"
                                                type="file"
                                                name="image_url">
@@ -66,6 +96,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
 
                           <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -93,7 +125,7 @@
                 console.error(error);
             });
         ClassicEditor
-            .create(document.querySelector('#description1'), {
+            .create(document.querySelector('#additional_description'), {
                 height: '500px'
             })
             .catch(error => {

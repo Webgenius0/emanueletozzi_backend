@@ -3,7 +3,6 @@
 @section('title', 'About Us')
 
 @push('style')
-
 @endpush
 
 @section('content')
@@ -22,11 +21,18 @@
         <div class="hero-section">
             <div class="hero-overlay"></div>
             <!-- Overlay div -->
+
+            @php
+                $cms = App\Models\Cms::get();
+            @endphp
+
+
             <div class="hero-content">
-                <h1 class="hero-title">Essential Tools for Business Growth</h1>
+                <h1 class="hero-title">
+                    {{ $cms ? $cms[5]->title : '' }}
+                </h1>
                 <p class="hero-desc">
-                    Download Our Helpful Tools to Optimize Your Business Operations.
-                    Access Excel Sheets and Guides to Streamline Your Process.
+                    {!! $cms ? $cms[5]->description : '' !!}
                 </p>
             </div>
         </div>
@@ -82,7 +88,7 @@
                 <div class="modal-text">
                     <h2 id="modal-tool-title"></h2>
 
-                    <p id="modal-tool-description" >  </p>
+                    <p id="modal-tool-description"> </p>
                     <p>
                         Enter your email to download this tool and optimize your business operations.
                     </p>
@@ -126,6 +132,13 @@
         // Close modal
         function closeModal() {
             $('#downloadModal').fadeOut();
+
+            // Clear modal data
+            $('#tool-id').val('');
+            $('#modal-tool-title').text('');
+            $('#modal-tool-image').attr('src', '');
+            $('#email').val('');
+            $('#terms').prop('checked', false);
         }
 
         // Handle form submission
@@ -137,7 +150,7 @@
             const termsAccepted = $('#terms').is(':checked');
 
             if (!termsAccepted) {
-                alert("You must accept the terms and conditions.");
+                toastr.error("You must accept the terms and conditions.");
                 return;
             }
 
@@ -155,13 +168,17 @@
                         // Trigger file download
                         window.location.href = response.file_url;
                         closeModal();
+
+                        // reload the page
+                        // location.reload();
+
                     } else {
-                        alert(response.message || "An error occurred. Please try again.");
+                        toastr.error(response.message || "An error occurred. Please try again.");
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error("Error:", error);
-                    alert("Something went wrong. Please try again.");
+                    toastr.error("Something went wrong. Please try again.");
                 }
             });
         });

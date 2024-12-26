@@ -12,17 +12,17 @@
             <ul>
                 <li><a href="#">Who we are</a></li>
                 <li><a href="#">Prices</a></li>
-                <li><a href="#">Latest Blog</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{route('home.article_lists')}}">Latest Blog</a></li>
+                <li><a href="{{route('conatct-us')}}">Contact</a></li>
             </ul>
         </div>
         <div class="footer-column">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Tools</a></li>
-                <li><a href="#">Articles</a></li>
+                <li><a href="{{route('about')}}">About Us</a></li>
+                <li><a href="{{route('services')}}">Services</a></li>
+                <li><a href="{{route('home.tools')}}">Tools</a></li>
+                <li><a href="{{route('home.articles')}}">Articles</a></li>
             </ul>
         </div>
         <div class="footer-column">
@@ -30,17 +30,17 @@
             <ul>
                 <li><a href="#">Our team do comprises professional</a></li>
                 <li class="email">
-                    <img src="./assets/images/icons/email.svg" alt="" />
+                    <img src="{{ asset('frontend/images/icons/email.svg') }} " alt="" />
                     <p>hello@example.com</p>
                 </li>
             </ul>
 
-            <div class="social-icons">
+            {{-- <div class="social-icons">
                 <a href="#"><img src="./assets/images/icons/fb.svg" alt="Facebook" /></a>
                 <a href="#"><img src="./assets/images/icons/x.svg" alt="Twitter" /></a>
                 <a href="#"><img src="./assets/images/icons/linkedin.svg" alt="Instagram" /></a>
                 <a href="#"><img src="./assets/images/icons/youtube.svg" alt="LinkedIn" /></a>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- copyright -->

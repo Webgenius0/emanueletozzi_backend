@@ -33,10 +33,17 @@
     <div>
         <h2 class="contact-title">Contact us</h2>
     </div>
+    {{-- success message show --}}
+    @if (session('success'))
+        <div class="alert alert-success text-success" style="color: green">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="contact-us">
         <!-- Contact Form -->
         <div class="contact-form">
-            <form action="#" method="post">
+            <form action="{{ route('contact.send') }}" method="post">
+                @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" placeholder="Enter your name" required />
@@ -47,7 +54,7 @@
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" />
+                    <input type="tel" name="number" id="phone" placeholder="Enter your phone number" />
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
@@ -58,7 +65,7 @@
         </div>
         <!-- Contact Image -->
         <div class="contact-image">
-            <img src=" {{asset('frontend/images/contact-img.svg')}} " alt="Contact Us" />
+            <img src=" {{ asset('frontend/images/contact-img.svg') }} " alt="Contact Us" />
         </div>
     </div>
 </section>

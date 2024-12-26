@@ -18,6 +18,13 @@ Route::get('/professional-details/{id}',[HomeController::class,'professional_det
 Route::get('/services',[HomeController::class,'services'])->name('services');
 
 
+Route::get('/article-lists',[HomeController::class,'article_lists'])->name('home.article_lists');
+Route::get('/articles',[HomeController::class,'articles'])->name('home.articles');
+Route::get('/articles-details/{id}',[HomeController::class,'articles_details'])->name('home.articles_details');
+
+
+
+
 Route::get('/home-tools',[HomeController::class,'tools'])->name('home.tools');
 
 Route::post('/tools/download', [HomeController::class, 'download'])->name('tools.download');

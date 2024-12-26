@@ -29,7 +29,7 @@
                                         <label class="form-lable">Title</label>
                                         <input type="text"
                                                class="form-control form-control-md border-left-0 @error('title') is-invalid @enderror"
-                                               placeholder="Title" name="title" value="{{ $data[6]->title }}">
+                                               placeholder="Title" name="title" value="{{ $data[2]->title }}">
                                         @error('title')
                                         <div style="color: red">{{$message}}</div>
                                         @enderror
@@ -39,7 +39,7 @@
                                 <div class="form-group row mb-3">
                                     <div class="col">
                                         <label class="form-lable">Description</label>
-                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{ $data[6]->description }}</textarea>
+                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{ $data[2]->description }}</textarea>
                                         @error('description')
                                         <div style="color: red">{{$message}}</div>
                                         @enderror
@@ -49,7 +49,7 @@
                                     <div class="col">
                                         <label class="form-lable">Image:</label>
                                         <input class="form-control dropify @error('image_url') is-invalid @enderror"
-                                            type="file" data-default-file="{{ $data[6]->image_url ? asset('/' . $data[6]->image_url) : asset('backend/img/placeholder/image_placeholder.png') }}"
+                                            type="file" data-default-file="{{ $data[2]->image_url ? asset('/' . $data[2]->image_url) : asset('backend/img/placeholder/image_placeholder.png') }}"
                                             name="image_url">
 
                                         @error('image_url')

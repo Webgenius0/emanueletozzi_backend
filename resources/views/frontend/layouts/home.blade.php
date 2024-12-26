@@ -120,7 +120,7 @@
             </div>
 
             @php
-                $client_reviews = App\Models\ClientReview::get();
+                $client_reviews = App\Models\ClientReview::limit(1)->get();
                 // dd($client_reviews);
             @endphp
 

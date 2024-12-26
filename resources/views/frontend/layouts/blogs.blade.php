@@ -21,12 +21,15 @@
         <div class="hero-section">
             <div class="hero-overlay"></div>
             <!-- Overlay div -->
+            @php
+                $cms = App\Models\Cms::get();
+            @endphp
             <div class="hero-content">
-                <h1 class="hero-title">Our Blog & Articles</h1>
+                <h1 class="hero-title">
+                    {{ $cms ? $cms[2]->title : '' }}
+                </h1>
                 <p class="hero-desc">
-                    Welcome to ONE-STARTUP.IT! We are your trusted partners in the world
-                    of business consulting, offering expert advice and tailored
-                    solutions to optimize your company's potential.
+                    {!! $cms ? $cms[2]->description : '' !!}
                 </p>
             </div>
         </div>

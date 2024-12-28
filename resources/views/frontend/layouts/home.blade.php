@@ -26,7 +26,7 @@
                 <!-- Hero Content -->
 
                 @php
-                    $cms = App\Models\Cms::get();
+                    $cms = App\Models\CMS::get();
                     // dd($cms);
                 @endphp
 
@@ -45,7 +45,7 @@
                                 <img src="  {{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
                             </span>
                         </a>
-                        <a class="secondary-btn" href="services.html">Our Service</a>
+                        <a class="secondary-btn" href="{{route('services')}}">Our Service</a>
                     </div>
                 </div>
                 <!-- Hero Image -->
@@ -57,7 +57,7 @@
     </header>
 
     <!-- professionals section starts -->
-    <section class="professionals-container custom-container">
+    {{-- <section class="professionals-container custom-container">
         <div class="professionals-heading">
             <h2 class="section-title">
                 Dedicated Professionals With Consulting Experties
@@ -103,7 +103,7 @@
                 </span>
             </a>
         </div>
-    </section>
+    </section> --}}
 
     <!-- professional section ends -->
 
@@ -111,11 +111,11 @@
     <section class="testimonial-container">
         <div class="custom-container">
             <div class="testimonial-heading">
-                <h2 class="section-title">What Our Clients Say About Us</h2>
+                <h2 class="section-title">
+                    {{ $cms ? $cms[2]->title : '' }}
+                </h2>
                 <p>
-                    Hear from our clients who've experienced One Startup.IT's
-                    transformative impact, and see how our expertise helped them
-                    achieve their business goals.
+                    {!! $cms ? $cms[2]->description : '' !!}
                 </p>
             </div>
 
@@ -134,19 +134,25 @@
                         <img src="{{ $review->image_url }}" alt="Client Image" />
                     </div>
                     <div class="testimonial-content">
-                        <p class="testimonial-text">
+
+
+                        <p  class="testimonial-text">
                             {!! $review ? $review->description : '' !!}
                         </p>
-                        <h3 class="customer-name mt-2">
+
+
+                        <h3 style="margin-top: 30px" class="customer-name mt-2">
                             {{ $review ? $review->title : '' }}
                         </h3>
                         <p class="customer-position">
                             {{ $review ? $review->sub_title : '' }}
                         </p>
+
+
                         <!-- arrow icons -->
                         <div class="testimonial-arrows">
-                            <img src="./assets/images/icons/left-arrow.svg" alt="Left Arrow" />
-                            <img src="./assets/images/icons/right-arrow.svg" alt="Right Arrow" />
+                            <img src="{{ asset('frontend/images/icons/left-arrow.svg') }} " alt="Left Arrow" />
+                            <img src="{{ asset('frontend/images/icons/right-arrow.svg') }} " alt="Right Arrow" />
                         </div>
                     </div>
                 @endforeach

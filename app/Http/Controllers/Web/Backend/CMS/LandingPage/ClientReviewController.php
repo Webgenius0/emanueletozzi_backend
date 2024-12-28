@@ -114,9 +114,11 @@ class ClientReviewController extends Controller
     }
     public function update(Request $request, $id)
     {
+
+
         $request->validate([
             'title' => 'required|string|max:255',
-            'sub_title' => 'required|string|max:255',
+            'designation' => 'required|string|max:255',
             'description' => 'required',
             'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -124,7 +126,7 @@ class ClientReviewController extends Controller
 
         $data = ClientReview::find($id);
         $data->title = $request->title;
-        $data->sub_title = $request->sub_title;
+        $data->sub_title = $request->designation;
         $data->description = $request->description;
 
          // Check Image Update

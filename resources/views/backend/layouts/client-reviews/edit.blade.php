@@ -40,9 +40,9 @@
                                 <div class="col-12">
                                     <div class="form-group mb-3">
                                         <label class="form-lable required">Designation:</label>
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                               id="title" name="title" value="{{$data->title}}">
-                                        @error('title')
+                                        <input type="text" class="form-control @error('designation') is-invalid @enderror"
+                                               id="designation" name="designation" value="{{$data->sub_title}}">
+                                        @error('designation')
                                         <div style="color: red;">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -69,7 +69,7 @@
                                             <label class="form-lable required">Image:</label>
                                             <input class="form-control dropify @error('image_url') is-invalid @enderror"
                                                    type="file"
-                                                   data-default-file="{{ asset('/' . $data->image_url) }}"
+                                                   data-default-file="{{ asset($data->image_url) }}"
                                                    name="image_url">
 
                                             @error('image_url')

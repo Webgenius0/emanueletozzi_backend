@@ -10,11 +10,7 @@
     <header>
         <!-- Sidebar starts -->
         <ul class="sidebar" id="sidebar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="articles.html" class="active">Articles</a></li>
+           @include('frontend.partials.mobile_navbar')
         </ul>
         <!-- Sidebar ends -->
         <!-- hero section starts -->
@@ -27,7 +23,7 @@
     <main>
         <!-- articles section -->
         <section class="articles-container">
-            <h2 class="section-title" style="padding: 30px">Articles</h2>
+            <h2 class="section-title" style="padding: 30px">Blogs and Articles</h2>
 
             <div class="articles custom-container">
                 <!-- Article 1 -->

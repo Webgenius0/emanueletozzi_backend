@@ -6,9 +6,17 @@
 @endpush
 
 @section('content')
+    <header>
 
-     <!-- contact us section starts -->
-     <section id="contact" class="contact-us-container custom-container">
+        <ul class="sidebar" id="sidebar">
+            @include('frontend.partials.mobile_navbar')
+
+        </ul>
+
+    </header>
+
+    <!-- contact us section starts -->
+    <section id="contact" class="contact-us-container custom-container">
         <div>
             <h2 class="contact-title">Contact us</h2>
         </div>
@@ -44,7 +52,7 @@
             </div>
             <!-- Contact Image -->
             <div class="contact-image">
-                <img src="{{asset('frontend/images/contact-img.svg')}} " alt="Contact Us" />
+                <img src="{{ asset('frontend/images/contact-img.svg') }} " alt="Contact Us" />
             </div>
         </div>
     </section>

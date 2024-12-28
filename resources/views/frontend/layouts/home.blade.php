@@ -12,11 +12,7 @@
     <header>
         <!-- Sidebar starts -->
         <ul class="sidebar" id="sidebar">
-            <li><a href="{{ route('home') }}" class="active">Home</a></li>
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="articles.html">Articles</a></li>
+            @include('frontend.partials.mobile_navbar')
         </ul>
         <!-- Sidebar ends -->
 

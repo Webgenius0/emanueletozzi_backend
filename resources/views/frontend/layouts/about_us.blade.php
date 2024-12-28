@@ -10,12 +10,9 @@
     <header>
         <!-- Sidebar starts -->
         <ul class="sidebar" id="sidebar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about-us.html" class="active">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="articles.html">Articles</a></li>
+           @include('frontend.partials.mobile_navbar')
         </ul>
+
 
         @php
             $cms = App\Models\CMS::get();

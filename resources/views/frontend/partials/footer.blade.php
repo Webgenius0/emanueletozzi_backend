@@ -8,8 +8,8 @@
                 businesses use Dail The fastest way.
             </p>
             <div class="social-icons">
-                <a href="#"><img src="./assets/images/icons/fb.svg" alt="Facebook" /></a>
-                <a href="#"><img src="./assets/images/icons/email.svg" alt="Facebook" /></a>
+                <a href="#"><img src="{{ asset('frontend/images/icons/fb.svg') }} " alt="Facebook" /></a>
+                <a href="#"><img src="{{ asset('frontend/images/icons/email.svg') }} " alt="Facebook" /></a>
             </div>
         </div>
         <div class="footer-column">

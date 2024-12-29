@@ -19,6 +19,10 @@
         #subscribe_btn:hover {
             background: #007bff;
         }
+
+        p {
+            font-size: 25px !important;
+        }
     </style>
 @endpush
 
@@ -106,7 +110,9 @@
                 <p class="article-detail-border"></p>
                 <p class="description">
                     {{-- {{ $blog ? $blog->introduction : '' }} --}}
-                    {!! $blog ? $blog->introduction : '' !!}
+                    <span style="font-size: 16px">
+                        {!! $blog ? $blog->introduction : '' !!}
+                    </span>
                 </p>
             </div>
             <!-- introduction -->
@@ -114,7 +120,7 @@
                 <h2 class="article-detail-title">About it</h2>
                 <p class="article-detail-border"></p>
                 <p class="description">
-                    {{ $blog ? $blog->about_it : '' }}
+                    {!! $blog ? $blog->about_it : '' !!}
                 </p>
             </div>
             <!-- introduction -->
@@ -122,18 +128,18 @@
                 <h2 class="article-detail-title">Why Consultancy</h2>
                 <p class="article-detail-border"></p>
                 <p class="description">
-                    {{ $blog ? $blog->why : '' }}
+                    {!! $blog ? $blog->why : '' !!}
                 </p>
             </div>
             <div class="details-img">
-                <img c src="{{ asset($blog->image_url) }} " alt="" />
+                <img c src="{!! asset($blog->image_url) !!} " alt="" />
             </div>
             <!-- introduction -->
             <div class="">
                 <h2 class="article-detail-title">End</h2>
                 <p class="article-detail-border"></p>
                 <p class="description">
-                    {{ $blog ? $blog->end : '' }}
+                    {!! $blog ? $blog->end : '' !!}
                 </p>
             </div>
             <div>

@@ -1,7 +1,10 @@
 <nav class="custom-container">
     <!-- Logo -->
     <div>
-        <img src=" {{ asset('frontend/images/logo.png') }} " alt="Logo" />
+        <a href="{{route('home')}}">
+
+            <img src=" {{ asset('frontend/images/logo.png') }} " alt="Logo" />
+        </a>
     </div>
 
     <!-- Nav Links -->

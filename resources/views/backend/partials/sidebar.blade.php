@@ -131,22 +131,22 @@
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.about-us.who-we-are') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.about-us.who-we-are') }}">Who We Are</a></li>
+                        class="menu-link" href="{{ route('cms.about-us.who-we-are') }}">What We Do</a></li>
 
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.about-us.digital-journey') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.about-us.digital-journey') }}">Digital Journey</a></li>
+                        class="menu-link" href="{{ route('cms.about-us.digital-journey') }}">Business Area</a></li>
 
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.about-us.business-growth') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.about-us.business-growth') }}">Business Growth</a></li>
+                        class="menu-link" href="{{ route('cms.about-us.business-growth') }}">Legal Area</a></li>
 
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.about-us.why-choose-us') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.about-us.why-choose-us') }}">Why Choose Us</a></li>
+                        class="menu-link" href="{{ route('cms.about-us.why-choose-us') }}">Text Area</a></li>
 
             </ul>
         </li>

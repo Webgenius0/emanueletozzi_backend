@@ -32,7 +32,7 @@
                     <a href="{{route('home.articles_details',$blog->id )}}" class="article">
 
 
-                        <img src="{{ $blog->image_url }}" alt="Article 1 Image" class="article-img" />
+                        <img src="{{ $blog->blog_image }}" alt="Article 1 Image" class="article-img" />
                         <h3 class="article-title">
                             {{ $blog->title }}
                         </h3>

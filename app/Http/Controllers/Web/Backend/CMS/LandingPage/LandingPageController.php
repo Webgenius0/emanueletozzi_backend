@@ -47,11 +47,62 @@ class LandingPageController extends Controller
             $image = Helper::fileUpload($request->file( 'image_url' ), 'cms-image', $request->image_url);
             $data->image_url = $image;
         }
-        
+
         $data->save();
 
         return redirect()->back()->with('t-success', 'Data Updated Successfully');
     }
+
+
+
+    public function whoWeAre()
+    {
+        $data = CMS::all();
+        //        return $data;
+        return view('backend.layouts.cms.landing-page.who-we-are', compact('data'));
+    }
+
+    /**
+     * Update the landing page banner title, sub_title, button_text, button_url and image.
+     * Takes input from a form, validates it, and updates the CMS entry.
+     * Returns a success or error toast message.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function whoWeAreContent(Request $request)
+    {
+
+        $data = CMS::findOrFail($request->id);
+
+        // Prepare data for update
+        $updateData = [
+            'title' => $request->title,
+            'description' => $request->description,
+        ];
+
+
+
+        // Perform the update
+        $updated = $data->update($updateData);
+
+        // Return with a success or error message
+        if ($updated) {
+            return redirect()->back()->with('t-success', 'Data Updated Successfully');
+        } else {
+            return redirect()->back()->with('t-error', 'Data update failed!');
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
 
      /**

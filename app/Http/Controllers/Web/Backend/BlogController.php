@@ -79,10 +79,13 @@ class BlogController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required',
-            'additional_description' => 'required',
+            'introduction' => 'required',
+            'about_it' => 'required',
+            'why' => 'required',
+            'end' => 'required',
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'detail_image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'blog_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
 
@@ -91,15 +94,22 @@ class BlogController extends Controller
         $data->title = $request->title;
 
          // Image store in local
+         $blog_image = Helper::fileUpload( $request->file( 'blog_image' ), 'tools', $request->blog_image );
          $clientImage = Helper::fileUpload( $request->file( 'image_url' ), 'tools', $request->image_url );
-         $blogsImage = Helper::fileUpload( $request->file( 'detail_image_url' ), 'tools', $request->detail_image_url );
+         $detail_image_url = Helper::fileUpload( $request->file( 'detail_image_url' ), 'tools', $request->detail_image_url );
 
 
+
+
+         $data->blog_image = $blog_image;
          $data->image_url = $clientImage;
-         $data->detail_image_url = $blogsImage;
+         $data->detail_image_url = $detail_image_url;
 
-        $data->description = $request->description;
-        $data->additional_description = $request->additional_description;
+        $data->introduction = $request->introduction;
+        $data->about_it = $request->about_it;
+        $data->why = $request->why;
+        $data->end = $request->end;
+
 
         $data->save();
 
@@ -119,16 +129,32 @@ class BlogController extends Controller
     }
     public function update(Request $request, $id)
     {
+
+        // dd($request->all());
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required',
-            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'introduction' => 'required',
+            'about_it' => 'required',
+            'why' => 'required',
+            'end' => 'required',
+            'image_url' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'detail_image_url' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'blog_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+
         ]);
 
 
         $data = Blog::find($id);
         $data->title = $request->title;
-        $data->description = $request->description;
+
+        $data->introduction = $request->introduction;
+        $data->about_it = $request->about_it;
+        $data->why = $request->why;
+        $data->end = $request->end;
+
+
+
 
          // Check Image Update
          if ( $request->image_url != null ) {
@@ -139,8 +165,18 @@ class BlogController extends Controller
             }
             // Image store in local
             $featuredImage = Helper::fileUpload( $request->file( 'image_url' ), 'tools', $request->image_url);
+
+            $detailImage = Helper::fileUpload( $request->file( 'detail_image_url' ), 'tools', $request->detail_image_url );
+            $blogImage = Helper::fileUpload( $request->file( 'blog_image' ), 'tools', $request->blog_image );
+
+            $data->detail_image_url = $detailImage;
             $data->image_url = $featuredImage;
+            $data->blog_image = $blogImage;
+
+
         }
+
+
 
         $data->save();
 

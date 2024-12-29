@@ -3,6 +3,23 @@
 @section('title', 'Professional-details')
 
 @push('style')
+    <style>
+        #subscribe_btn {
+            display: inline-block;
+            padding: 20px 20px;
+            font-size: 1rem;
+            color: #fff;
+            border-radius: 5.287px;
+            background: #0ea5e9;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        #subscribe_btn:hover {
+            background: #007bff;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -22,7 +39,7 @@
                     <!-- Breadcrumbs -->
                     <div class="breadcumb">
                         <p class="article">Articles</p>
-                        <img src="{{asset('frontend/images/icons/breadcumb.svg')}}" alt="Breadcrumb Icon" />
+                        <img src="{{ asset('frontend/images/icons/breadcumb.svg') }}" alt="Breadcrumb Icon" />
                         <p class="details">Details</p>
                     </div>
                     <!-- Article title -->
@@ -55,26 +72,70 @@
         </div>
         <!-- header img which some parts of it will be top of header -->
         <div class="article-detail-header-img custom-container">
-            <img src="{{asset($blog->detail_image_url)}}" alt="" />
+            <img src="{{ asset($blog->detail_image_url) }}" alt="" />
         </div>
         <!-- hero section ends -->
     </header>
     <!-- header area ends -->
 
-    <!-- main area starts -->
-    <main>
-        <!--  -->
-        <section class="details-container custom-container">
-            <h2 class="section-title text-start">Introduction</h2>
-            <p class="description">
-                {!! $blog ? $blog->description : '' !!}
-            </p>
-            <div class="details-img">
-                <img c src="{{asset($blog->image_url)}}" alt="" />
+    <!--  -->
+    <section class="article-details-container custom-container">
+        <!-- left side contents -->
+        {{-- <div class="contents-container">
+            <h3 class="content-title">Contents</h3>
+
+            <p class="content-detail-border"></p>
+            <a href="#">
+                <p class="content-desc">Introduction</p>
+            </a>
+            <a href="#">
+                <p class="content-desc">About it</p>
+            </a>
+            <a href="#">
+                <p class="content-desc">Why Consultancy</p>
+            </a>
+            <a href="#">
+                <p class="content-desc">End</p>
+            </a>
+        </div> --}}
+        <!-- right side sections -->
+        <div class="details-container">
+            <!-- introduction -->
+            <div class="">
+                <h2 class="article-detail-title">Introduction</h2>
+                <p class="article-detail-border"></p>
+                <p class="description">
+                    {{-- {{ $blog ? $blog->introduction : '' }} --}}
+                    {!! $blog ? $blog->introduction : '' !!}
+                </p>
             </div>
-            <p class="description">
-                {!! $blog ? $blog->additional_description : '' !!}
-            </p>
+            <!-- introduction -->
+            <div class="article-paragraph-wrapper">
+                <h2 class="article-detail-title">About it</h2>
+                <p class="article-detail-border"></p>
+                <p class="description">
+                    {{ $blog ? $blog->about_it : '' }}
+                </p>
+            </div>
+            <!-- introduction -->
+            <div class="">
+                <h2 class="article-detail-title">Why Consultancy</h2>
+                <p class="article-detail-border"></p>
+                <p class="description">
+                    {{ $blog ? $blog->why : '' }}
+                </p>
+            </div>
+            <div class="details-img">
+                <img c src="{{ asset($blog->image_url) }} " alt="" />
+            </div>
+            <!-- introduction -->
+            <div class="">
+                <h2 class="article-detail-title">End</h2>
+                <p class="article-detail-border"></p>
+                <p class="description">
+                    {{ $blog ? $blog->end : '' }}
+                </p>
+            </div>
             <div>
                 <div class="details-meta">
                     {{-- <div class="icons-tags-container">
@@ -91,13 +152,6 @@
                                 <a href="#"><img src="./assets/images/icons/blye-yt-icon.svg" alt="LinkedIn" /></a>
                             </div>
                         </div>
-                        <!-- Tags -->
-                        <div class="tags">
-                            <p>Tag one</p>
-                            <p>Tag two</p>
-                            <p>Tag three</p>
-                            <p>Tag four</p>
-                        </div>
                     </div> --}}
 
                     <div>
@@ -109,7 +163,7 @@
                         <img src="{{ $admin->avatar ? asset($admin->avatar) : asset('frontend/images/author4.svg') }}"
                             alt="Author Image" class="author-img" />
                         <div class="author-info">
-                            <p class="author-name " >{{ $admin->name }} </p>
+                            <p class="author-name">{{ $admin->name }} </p>
                             <p class="article-details">
                                 {{ $blog->created_at->diffForHumans() }}
                             </p>
@@ -119,8 +173,38 @@
 
 
 
-        </section>
-    </main>
+            </div>
+    </section>
+    <!-- subscribe to newsletter section -->
+    <section class="newsletter-container custom-container">
+        {{-- success message show --}}
+
+        <div class="newsletter ">
+            @if (session('success'))
+                <div class="alert alert-success text-success" style="color: green">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <h2>Subscribe to our newsletter</h2>
+            <p>Stay updated with the latest news, special offers, and exclusive content. Join our newsletter today and never
+                miss an update from us!</p>
+            <form action="{{ route('newsletter.subscribe') }}" method="post">
+                @csrf
+                <div class="form-container">
+
+                    <div>
+                        <input type="email" name="email" placeholder="Enter your email">
+                    </div>
+                    <div class="subscribe-btn">
+                        <button id="subscribe_btn" type="submit">Subscribe</button>
+                    </div>
+
+
+                </div>
+            </form>
+            <p>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</p>
+        </div>
+    </section>
 
 @endsection
 

@@ -1,21 +1,23 @@
 @php
 
-    $system =\App\Models\SystemSetting::first();
+    $system = \App\Models\SystemSetting::first();
 
- @endphp
+@endphp
 
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{ route('dashboard') }}" class="app-brand-link">
             <span class="app-brand-logo demo">
-                 <a href="{{ route('home') }}">
-                     @if (!empty($system->logo))
-                         <img class="mb-3" width="200" height="24px" src="{{ asset($system->logo ?? "") }}" alt="logo"/>
-                     @else
-                         <img class="mb-3" width="200" height="24px" src="{{ asset('backend/img/logo/logo_F.png') }}" alt="logo"/>
-                     @endif
-                 </a>
+                <a href="{{ route('home') }}">
+                    @if (!empty($system->logo))
+                        <img class="mb-3" width="200" height="24px" src="{{ asset($system->logo ?? '') }}"
+                            alt="logo" />
+                    @else
+                        <img class="mb-3" width="200" height="24px"
+                            src="{{ asset('backend/img/logo/logo_F.png') }}" alt="logo" />
+                    @endif
+                </a>
             </span>
         </a>
 
@@ -39,7 +41,8 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">CMS</span></li>
 
 
-        <li class="menu-item {{ Request::routeIs('cms.landing-page.*') || Request::routeIs('our-values.*') || Request::routeIs('process.*') || Request::routeIs('clinical.*') ? 'active open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('cms.landing-page.*') || Request::routeIs('our-values.*') || Request::routeIs('process.*') || Request::routeIs('clinical.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Layouts">Landing Page</div>
@@ -47,27 +50,39 @@
 
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.banner') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.landing-page.banner') }}">Banner Section</a></li>
+                        class="menu-link" href="{{ route('cms.landing-page.banner') }}">Banner Section</a>
+
+                </li>
+            </ul>
+
+            <ul class="menu-sub">
+                <li class="menu-item {{ Request::routeIs('cms.landing-page.who-we-are') ? 'active' : '' }}"><a
+                        class="menu-link" href="{{ route('cms.landing-page.who-we-are') }}">Who We Are</a></li>
 
             </ul>
+
+
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.experties') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.landing-page.experties') }}">Our Experties Header</a></li>
+                        class="menu-link" href="{{ route('cms.landing-page.experties') }}">Our Experties Header</a>
+                </li>
 
             </ul>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('cms.landing-page.client-review-header') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.landing-page.client-review-header') }}">Clients Review Header</a></li>
+                <li class="menu-item {{ Request::routeIs('cms.landing-page.client-review-header') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('cms.landing-page.client-review-header') }}">Clients Review
+                        Header</a></li>
 
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.contact-us-header') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('cms.landing-page.contact-us-header') }}">Contact Us Header</a></li>
+                        class="menu-link" href="{{ route('cms.landing-page.contact-us-header') }}">Contact Us
+                        Header</a></li>
 
             </ul>
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('client-reviews.*') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('client-reviews.index') }}">Client Reviews</a></li>
+                <li class="menu-item {{ Request::routeIs('client-reviews.*') ? 'active' : '' }}"><a class="menu-link"
+                        href="{{ route('client-reviews.index') }}">Client Reviews</a></li>
 
             </ul>
             {{-- <ul class="menu-sub">
@@ -102,7 +117,8 @@
             </ul> --}}
         </li>
 
-        <li class="menu-item {{ Request::routeIs('cms.about-us.*') || Request::routeIs('cms.intake-form.*')  ? 'active open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('cms.about-us.*') || Request::routeIs('cms.intake-form.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Layouts">About Us</div>
@@ -143,14 +159,14 @@
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('tools.header') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('tools.header') }}">Tools Header</a></li>
+                <li class="menu-item {{ Request::routeIs('tools.header') ? 'active' : '' }}"><a class="menu-link"
+                        href="{{ route('tools.header') }}">Tools Header</a></li>
 
             </ul>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('tools.index') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('tools.index') }}">Tools</a></li>
+                <li class="menu-item {{ Request::routeIs('tools.index') ? 'active' : '' }}"><a class="menu-link"
+                        href="{{ route('tools.index') }}">Tools</a></li>
 
             </ul>
         </li>
@@ -212,7 +228,8 @@
         </li>
 
 
-        <li class="menu-item {{ Request::routeIs('experts.*') || Request::routeIs('skills.*') || Request::routeIs('experiences.*') ? 'active open' : '' }}">
+        <li
+            class="menu-item {{ Request::routeIs('experts.*') || Request::routeIs('skills.*') || Request::routeIs('experiences.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
                 <div data-i18n="Layouts">Experties Page</div>
@@ -225,21 +242,24 @@
             </ul> --}}
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('experts.index') || Request::routeIs('experts.edit') || Request::routeIs('experts.create') || Request::routeIs('experts.update') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('experts.index') }}">Experties</a></li>
+                <li
+                    class="menu-item {{ Request::routeIs('experts.index') || Request::routeIs('experts.edit') || Request::routeIs('experts.create') || Request::routeIs('experts.update') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('experts.index') }}">Experties</a></li>
 
             </ul>
 
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('skills.index') || Request::routeIs('skills.edit') || Request::routeIs('skills.create') || Request::routeIs('skills.update') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('skills.index') }}">Skills</a></li>
+                <li
+                    class="menu-item {{ Request::routeIs('skills.index') || Request::routeIs('skills.edit') || Request::routeIs('skills.create') || Request::routeIs('skills.update') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('skills.index') }}">Skills</a></li>
 
             </ul>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('experiences.index') || Request::routeIs('experiences.edit') || Request::routeIs('experiences.create') || Request::routeIs('experiences.update') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('experiences.index') }}">Experiences</a></li>
+                <li
+                    class="menu-item {{ Request::routeIs('experiences.index') || Request::routeIs('experiences.edit') || Request::routeIs('experiences.create') || Request::routeIs('experiences.update') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('experiences.index') }}">Experiences</a></li>
 
             </ul>
         </li>
@@ -256,14 +276,15 @@
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('blogs.header') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('blogs.header') }}">Blog Header</a></li>
+                <li class="menu-item {{ Request::routeIs('blogs.header') ? 'active' : '' }}"><a class="menu-link"
+                        href="{{ route('blogs.header') }}">Blog Header</a></li>
 
             </ul>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('blogs.index') || Request::routeIs('blogs.edit') || Request::routeIs('blogs.create') || Request::routeIs('blogs.update') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('blogs.index') }}">Blogs</a></li>
+                <li
+                    class="menu-item {{ Request::routeIs('blogs.index') || Request::routeIs('blogs.edit') || Request::routeIs('blogs.create') || Request::routeIs('blogs.update') ? 'active' : '' }}">
+                    <a class="menu-link" href="{{ route('blogs.index') }}">Blogs</a></li>
 
             </ul>
         </li>
@@ -317,7 +338,7 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('profile.setting') ? 'active' : '' }}">
-                    <a href="{{route('profile.setting')}}" class="menu-link">
+                    <a href="{{ route('profile.setting') }}" class="menu-link">
                         <div data-i18n="Account">Profile Setting</div>
                     </a>
                 </li>
@@ -327,17 +348,18 @@
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('mail.setting') ? 'active' : ' ' }}">
-                    <a href="{{route('mail.setting')}}" class="menu-link">
+                    <a href="{{ route('mail.setting') }}" class="menu-link">
                         <div data-i18n="Connections">Mail Setting</div>
                     </a>
                 </li>
                 <li class="menu-item {{ Request::routeIs('stripe.index') ? 'active' : ' ' }}">
-                    <a href="{{route('stripe.index')}}" class="menu-link">
+                    <a href="{{ route('stripe.index') }}" class="menu-link">
                         <div data-i18n="Connections">Stripe Setting</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('dynamic_page.index') || Request::routeIs('dynamic_page.create') || Request::routeIs('dynamic_page.edit') ? 'active' : ' ' }}">
-                    <a href="{{route('dynamic_page.index')}}" class="menu-link">
+                <li
+                    class="menu-item {{ Request::routeIs('dynamic_page.index') || Request::routeIs('dynamic_page.create') || Request::routeIs('dynamic_page.edit') ? 'active' : ' ' }}">
+                    <a href="{{ route('dynamic_page.index') }}" class="menu-link">
                         <div data-i18n="Connections">Dynamic Page Setting</div>
                     </a>
                 </li>

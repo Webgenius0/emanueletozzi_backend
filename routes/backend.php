@@ -183,6 +183,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/cms/landing-page/contact-us-header', 'contactUsHeader')->name('cms.landing-page.contact-us-header');
         Route::patch('/cms/landing-page/contact-us-header', 'contactUsHeaderContent')->name('cms.landing-page.contact-us-header.update');
 
+        Route::get('/cms/landing-page/who-we-are', 'whoWeAre')->name('cms.landing-page.who-we-are');
+        Route::patch('/cms/landing-page/who-we-are', 'whoWeAreContent')->name('cms.landing-page.who-we-are.update');
+
         // Route::get('/cms/landing-page/ideal-preceptor', 'idealPreceptor')->name('cms.landing-page.ideal-preceptor');
         // Route::patch('/cms/landing-page/ideal-preceptor', 'idealPreceptorContent')->name('cms.landing-page.ideal-preceptor.update');
         Route::get('/cms/landing-page/connect-member', 'connectMember')->name('cms.landing-page.connect-member');

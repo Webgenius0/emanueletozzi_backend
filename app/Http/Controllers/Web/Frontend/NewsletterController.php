@@ -10,6 +10,7 @@ class NewsletterController extends Controller
 {
     public function subscribe(Request $request)
     {
+        // dd($request->all());
         // Validate the email address
         $request->validate([
             'email' => 'required|email',
@@ -26,6 +27,6 @@ class NewsletterController extends Controller
             'email' => $request->email,
         ]);
 
-        return back()->with('t-success', 'Thank you for subscribing!');
+        return back()->with('success', 'Thank you for subscribing!');
     }
 }

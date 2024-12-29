@@ -14,8 +14,12 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
+            $table->text('intro');
+            $table->text('about_it');
+            $table->text('why');
+            $table->text('end');
             $table->text('additional_description');
+            $table->string('blog_image')->nullable();
             $table->string('image_url')->nullable();
             $table->string('detail_image_url')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');

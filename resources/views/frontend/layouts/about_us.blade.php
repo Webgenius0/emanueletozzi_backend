@@ -44,7 +44,7 @@
 
     <!-- who we are section styles -->
     <section class="who-we-are-container">
-        <h2 class="section-title">Who we are</h2>
+        <h2 class="section-title">What we do</h2>
         <div class="one-startup-desc">
             <p>
                 {{ $cms ? $cms[7]->title : '' }}

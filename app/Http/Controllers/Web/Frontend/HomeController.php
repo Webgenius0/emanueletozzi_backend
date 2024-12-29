@@ -177,7 +177,7 @@ class HomeController extends Controller
     }
     public function articles()
     {
-        $blogs = Blog::limit(4)->get();
+        $blogs = Blog::limit(4)->orderBy('id', 'desc')->get();
         return view('frontend.layouts.blogs', compact('blogs'));
     }
 

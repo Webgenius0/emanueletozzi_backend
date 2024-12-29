@@ -37,11 +37,11 @@
                     <div class="hero-btn">
                         <a class="primary-btn" href="#">
                             <span class="primary-btn-content">
-                                Get in touch
+                                Acquista ora
                                 <img src="  {{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
                             </span>
                         </a>
-                        <a class="secondary-btn" href="{{route('services')}}">Our Service</a>
+                        <a class="secondary-btn" href="{{route('services')}}">Subscribe Newsletter</a>
                     </div>
                 </div>
                 <!-- Hero Image -->
@@ -52,54 +52,32 @@
         </div>
     </header>
 
-    <!-- professionals section starts -->
-    {{-- <section class="professionals-container custom-container">
-        <div class="professionals-heading">
-            <h2 class="section-title">
-                Dedicated Professionals With Consulting Experties
-            </h2>
-        </div>
+    <!-- who we are starts -->
+    <section class="who-we-are-home-container custom-container">
+        <div>
+          <h2 class="section-title">
+            {{ $cms ? $cms[15]->title : 'Who we are' }}
+          </h2>
+          <p class="section-desc">
+            {!! $cms ? $cms[15]->description : 'We are a trusted consultancy firm dedicated to empowering
+            businesses and individuals with expert advice, innovative solutions,
+            and personalized strategies. Our mission is to help you achieve your
+            goals efficiently and effectively.' !!}
 
-        <div class="professionals-profile">
-            <!-- Professional 1 Card -->
-
-            @if (count($experties) > 0)
-
-                @foreach ($experties as $expert)
-                    <a href="{{ route('home.professional_details', $expert->id) }}" class="professional-card">
-                        <div class="professional-img">
-                            <img src=" {{ $expert ? asset($expert->image_url) : '' }} " alt="Hero" />
-
-                        </div>
-                        <div class="professional-info">
-                            <h3 class="professional-name">
-                                {{ $expert ? $expert->name : '' }}
-                            </h3>
-                            <p class="professional-title">
-                                {{ $expert ? $expert->designation : '' }}
-                            </p>
-                        </div>
-                    </a>
-                @endforeach
-            @else
-                <p>No data found</p>
-
-            @endif
-
-
-
-
-        </div>
-
-        <div class="view-btn-container">
-            <a class="view-btn" href="{{ route('home.professional') }}">
-                <span class="primary-btn-content">
-                    View all member
-                    <img src="{{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
-                </span>
+          </p>
+          <div class="learn-more-btn-container">
+            <a class="primary-btn" href="https://etozzi.com/chi-siamo/" target="_blank" >
+              <span class="primary-btn-content">
+                Learn More
+                <img
+                  src="{{ asset('frontend/images/icons/arrow-icon.svg') }}"
+                  alt="arrow Icon"
+                />
+              </span>
             </a>
+          </div>
         </div>
-    </section> --}}
+      </section>
 
     <!-- professional section ends -->
 
@@ -132,7 +110,7 @@
                     <div class="testimonial-content">
 
 
-                        <p  class="testimonial-text">
+                        <p style="font-size: 16px !important;"  class="testimonial-text">
                             {!! $review ? $review->description : '' !!}
                         </p>
 
@@ -150,6 +128,9 @@
                             <img src="{{ asset('frontend/images/icons/left-arrow.svg') }} " alt="Left Arrow" />
                             <img src="{{ asset('frontend/images/icons/right-arrow.svg') }} " alt="Right Arrow" />
                         </div>
+                        <div class="trustpilot-reviews">
+                            <a href="https://trustpilot%20reviews/" target="_blank"><p>trustpilot reviews</p></a>
+                          </div>
                     </div>
                 @endforeach
             </div>

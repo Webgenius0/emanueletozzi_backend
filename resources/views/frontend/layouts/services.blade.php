@@ -19,12 +19,14 @@
             <div class="hero-overlay"></div>
             <!-- Overlay div -->
             <div class="hero-content">
-                <h1 class="hero-title">Services</h1>
-                <p class="hero-desc">
+                <h1 class="hero-title">
+                    Acquista ora
+                </h1>
+                {{-- <p class="hero-desc">
                     Welcome to ONE-STARTUP.IT! We are your trusted partners in the world
                     of business consulting, offering expert advice and tailored
                     solutions to optimize your company's potential.
-                </p>
+                </p> --}}
             </div>
         </div>
         <!-- hero section ends -->
@@ -33,19 +35,20 @@
 
     <!-- main area starts -->
 
-    <!-- services 2 cards -->
-    <section class="two-pricing-card-container">
-        <h2 class="section-title">Services</h2>
-        <div class="two-pricing-cards">
-            <!-- First Card -->
+    <!-- 3 pricing cards -->
+    <section class="three-pricing-card-container">
+        <h2 class="section-title">Prenota Ora</h2>
+        <p style="text-align: center">Fissa un appuntamento in agenda e acquista il servizio </p>
+        <div class="three-pricing-cards">
+            <!-- Second Card -->
             <div class="pricing-card">
                 <h2 class="pricing-card-title">Orientations</h2>
                 <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }} " alt="tick icon" />
+                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
                     <p>Ideal if you need support on how to proceed</p>
                 </div>
                 <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }} " alt="tick icon" />
+                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
                     <p>Personalized quotes for your needs</p>
                 </div>
                 <p class="pricing-card-desc">
@@ -62,7 +65,8 @@
                 </div>
                 <h2 class="price-title">$00</h2>
                 <div class="pricing-card-buttons-container">
-                    <a class="pricing-card-button" href="#">Book a videocall</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Book a videocall</a>
                 </div>
                 <p class="pricing-support-desc">
                     If you need support on which package to purchase or if you need a
@@ -70,7 +74,6 @@
                     right solution for you.
                 </p>
             </div>
-
             <!-- Second Card -->
             <div class="pricing-card">
                 <h2 class="pricing-card-title">Business Plan</h2>
@@ -94,53 +97,19 @@
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
                     <p>Duration: 30 min</p>
                 </div>
-                <h2 class="price-title">$89</h2>
+                <h2 class="price-title">$89(Per S)</h2>
                 <div class="pricing-card-buttons-container">
-                    <a class="pricing-card-button" href="#">Acquista Starter (S) € 89</a>
-                    <a class="pricing-card-button" href="#">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
-                    <a class="pricing-card-button" href="#">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3 pricing cards -->
-    <section class="three-pricing-card-container">
-        <h2 class="section-title">Services</h2>
-        <div class="three-pricing-cards">
-            <!-- Second Card -->
-            <div class="pricing-card">
-                <h2 class="pricing-card-title">Business Plan</h2>
-                <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Ideal if you need support on how to proceed</p>
-                </div>
-                <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Personalized quotes for your needs</p>
-                </div>
-                <p class="pricing-card-desc">
-                    We will collect the information to provide you with a personalized
-                    quote.
-                </p>
-                <div class="pricing-card-duration">
-                    <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 15 min</p>
-                </div>
-                <div class="pricing-card-duration">
-                    <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 30 min</p>
-                </div>
-                <h2 class="price-title">$89</h2>
-                <div class="pricing-card-buttons-container">
-                    <a class="pricing-card-button" href="#">Acquista Starter (S) € 89</a>
-                    <a class="pricing-card-button" href="#">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
-                    <a class="pricing-card-button" href="#">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Starter (S) € 89</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
                 </div>
             </div>
             <!-- Second Card -->
             <div class="pricing-card">
-                <h2 class="pricing-card-title">Business Plan</h2>
+                <h2 class="pricing-card-title">Consulenza</h2>
                 <div class="pricing-card-lists">
                     <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
                     <p>Ideal if you need support on how to proceed</p>
@@ -161,41 +130,14 @@
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
                     <p>Duration: 30 min</p>
                 </div>
-                <h2 class="price-title">$89</h2>
+                <h2 class="price-title">$89(Per S)</h2>
                 <div class="pricing-card-buttons-container">
-                    <a class="pricing-card-button" href="#">Acquista Starter (S) € 89</a>
-                    <a class="pricing-card-button" href="#">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
-                    <a class="pricing-card-button" href="#">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
-                </div>
-            </div>
-            <!-- Second Card -->
-            <div class="pricing-card">
-                <h2 class="pricing-card-title">Business Plan</h2>
-                <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Ideal if you need support on how to proceed</p>
-                </div>
-                <div class="pricing-card-lists">
-                    <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Personalized quotes for your needs</p>
-                </div>
-                <p class="pricing-card-desc">
-                    We will collect the information to provide you with a personalized
-                    quote.
-                </p>
-                <div class="pricing-card-duration">
-                    <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 15 min</p>
-                </div>
-                <div class="pricing-card-duration">
-                    <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 30 min</p>
-                </div>
-                <h2 class="price-title">$89</h2>
-                <div class="pricing-card-buttons-container">
-                    <a class="pricing-card-button" href="#">Acquista Starter (S) € 89</a>
-                    <a class="pricing-card-button" href="#">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
-                    <a class="pricing-card-button" href="#">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Starter (S) € 89</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Advanced (2S) € 142 Risparmi il 20%!</a>
+                    <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
+                        target="_blank">Acquista Superior (3S) € 187 Risparmi il 30%!</a>
                 </div>
             </div>
         </div>
@@ -204,11 +146,11 @@
     <!-- services cards container -->
     <section class="services-cards-container">
         <div class="services-heading">
-            <h2 class="section-title">Services</h2>
+            <h2 class="section-title">Ask for a quote</h2>
             <p class="section-desc">
-                Our platform offers more than just secure file sharing. Explore the
-                top features designed to make document management simple, fast, and
-                secure for your business.
+                We provide a complete range of services to start-up in business, legal and tax matters. To obtain more
+                information about our services, please visit the 'what we do' page. Please book an appointment to explain
+                your needs and obtain a quotation
             </p>
         </div>
         <!-- cards -->
@@ -217,7 +159,7 @@
                 <div class="services-icon">
                     <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
                 </div>
-                <h3 class="service-card-title">Services</h3>
+                <h3 class="service-card-title">Business</h3>
                 <p class="service-card-desc">
                     Back up all your critical documents with up to 50GB of secure
                     cloud storage. Store large files with ease, up to 5GB per file,
@@ -228,7 +170,7 @@
                 <div class="services-icon">
                     <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
                 </div>
-                <h3 class="service-card-title">Services</h3>
+                <h3 class="service-card-title">Tax</h3>
                 <p class="service-card-desc">
                     Back up all your critical documents with up to 50GB of secure
                     cloud storage. Store large files with ease, up to 5GB per file,
@@ -239,46 +181,15 @@
                 <div class="services-icon">
                     <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
                 </div>
-                <h3 class="service-card-title">Services</h3>
+                <h3 class="service-card-title">Legal</h3>
                 <p class="service-card-desc">
                     Back up all your critical documents with up to 50GB of secure
                     cloud storage. Store large files with ease, up to 5GB per file,
                     ensuring that both small and large documents are covered.
                 </p>
             </div>
-            <div class="service-card">
-                <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
-                </div>
-                <h3 class="service-card-title">Services</h3>
-                <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
-                </p>
-            </div>
-            <div class="service-card">
-                <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
-                </div>
-                <h3 class="service-card-title">Services</h3>
-                <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
-                </p>
-            </div>
-            <div class="service-card">
-                <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
-                </div>
-                <h3 class="service-card-title">Services</h3>
-                <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
-                </p>
-            </div>
+
+
         </div>
     </section>
 

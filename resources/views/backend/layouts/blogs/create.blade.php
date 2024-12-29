@@ -21,88 +21,131 @@
                         <h4 class="card-title">Create Blog</h4>
                         <div class="mt-4">
                             <form class="forms-sample" action="{{ route('blogs.store') }}" method="POST"
-                            enctype="multipart/form-data">
-                          @csrf
-                          <div class="row">
-                              <div class="col-12">
-                                  <div class="form-group mb-3">
-                                      <label class="form-lable required">Name:</label>
-                                      <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                             id="title" name="title" value="{{ old('title') }}">
-                                      @error('title')
-                                      <div style="color: red;">{{ $message }}</div>
-                                      @enderror
-                                  </div>
-                              </div>
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group row mb-3">
+                                            <div class="col">
+                                                <label class="form-lable required">Blog details Image:</label>
+                                                <input
+                                                    class="form-control dropify @error('detail_image_url') is-invalid @enderror"
+                                                    type="file" name="detail_image_url">
 
-                          </div>
-
-                          <div class="row">
-                            <div class="col-12">
-                                <div class="form-group row mb-3">
-                                    <div class="col">
-                                        <label class="form-lable required">Blog details Image:</label>
-                                        <input class="form-control dropify @error('detail_image_url') is-invalid @enderror"
-                                               type="file"
-                                               name="detail_image_url">
-
-                                        @error('detail_image_url')
-                                        <div style="color: red;">{{ $message }}</div>
-                                        @enderror
+                                                @error('detail_image_url')
+                                                    <div style="color: red;">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                          <div class="row">
-                              <div class="col-12">
-                                  <div class="form-group row mb-3">
-                                      <div class="col">
-                                          <label class="form-lable required">Description:</label>
-                                          <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description">{{ old('description') }}</textarea>
-                                          @error('description')
-                                          <div style="color: red;">{{ $message }}</div>
-                                          @enderror
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
+                                <div class="row">
 
-                          <div class="row">
-                            <div class="col-12">
-                                <div class="form-group row mb-3">
-                                    <div class="col">
-                                        <label class="form-lable required">Additional Description:</label>
-                                        <textarea class="form-control @error('additional_description') is-invalid @enderror" name="additional_description" id="additional_description">{{ old('additional_description') }}</textarea>
-                                        @error('additional_description')
-                                        <div style="color: red;">{{ $message }}</div>
-                                        @enderror
+                                    <div class="col-12">
+                                        <div class="form-group mb-3">
+                                            <label class="form-lable required">Name:</label>
+                                            <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                                id="title" name="title" value="{{ old('title') }}">
+                                            @error('title')
+                                                <div style="color: red;">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group row mb-3">
+                                            <div class="col">
+                                                <label class="form-lable required">Blog  Image:</label>
+                                                <input
+                                                    class="form-control dropify @error('blog_image') is-invalid @enderror"
+                                                    type="file" name="blog_image">
+
+                                                @error('blog_image')
+                                                    <div style="color: red;">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row mb-3">
+                                                <div class="col">
+                                                    <label class="form-lable required">Introduction:</label>
+                                                    <textarea class="form-control @error('introduction') is-invalid @enderror" name="introduction" id="introduction">{{ old('introduction') }}</textarea>
+                                                    @error('introduction')
+                                                        <div style="color: red;">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row mb-3">
+                                                <div class="col">
+                                                    <label class="form-lable required">About It:</label>
+                                                    <textarea class="form-control @error('about_it') is-invalid @enderror" name="about_it" id="about_it">{{ old('about_it') }}</textarea>
+                                                    @error('about_it')
+                                                        <div style="color: red;">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row mb-3">
+                                                <div class="col">
+                                                    <label class="form-lable required">Why Consultancy:</label>
+                                                    <textarea class="form-control @error('why') is-invalid @enderror" name="why" id="why">{{ old('why') }}</textarea>
+                                                    @error('why')
+                                                        <div style="color: red;">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row mb-3">
+                                                <div class="col">
+                                                    <label class="form-lable required"> Consultancy Image:</label>
+                                                    <input
+                                                        class="form-control dropify @error('image_url') is-invalid @enderror"
+                                                        type="file" name="image_url">
+
+                                                    @error('image_url')
+                                                        <div style="color: red;">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group row mb-3">
+                                                <div class="col">
+                                                    <label class="form-lable required">End:</label>
+                                                    <textarea class="form-control @error('end') is-invalid @enderror" name="end" id="end">{{ old('end') }}</textarea>
+                                                    @error('end')
+                                                        <div style="color: red;">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                          <div class="row">
-                            <div class="col-12">
-                                <div class="form-group row mb-3">
-                                    <div class="col">
-                                        <label class="form-lable required"> Description Image:</label>
-                                        <input class="form-control dropify @error('image_url') is-invalid @enderror"
-                                               type="file"
-                                               name="image_url">
-
-                                        @error('image_url')
-                                        <div style="color: red;">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
 
 
-                        </div>
-
-                          <button type="submit" class="btn btn-primary me-2">Submit</button>
-                          <a href="{{ route('blogs.index') }}" class="btn btn-danger ">Cancel</a>
-                      </form>
+                                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                                    <a href="{{ route('blogs.index') }}" class="btn btn-danger ">Cancel</a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -118,14 +161,30 @@
 
     <script>
         ClassicEditor
-            .create(document.querySelector('#description'), {
+            .create(document.querySelector('#introduction'), {
                 height: '500px'
             })
             .catch(error => {
                 console.error(error);
             });
         ClassicEditor
-            .create(document.querySelector('#additional_description'), {
+            .create(document.querySelector('#about_it'), {
+                height: '500px'
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#why'), {
+                height: '500px'
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor
+            .create(document.querySelector('#end'), {
                 height: '500px'
             })
             .catch(error => {

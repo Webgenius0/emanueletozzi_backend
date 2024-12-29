@@ -3,6 +3,17 @@
 @section('title', 'About Us')
 
 @push('style')
+    <style>
+        .input-container {
+            display: flex;
+            align-items: flex-start;
+            background: #f9f9f9;
+            border: 0px solid #ccc;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -99,7 +110,7 @@
                                 <button type="submit">Download</button>
                             </div>
                         </div>
-                        <div class="form-group terms">
+                        <div class=" ">
                             <input type="checkbox" id="terms" name="terms" required />
                             <label for="terms">
                                 I accept the <a href="#">terms and conditions</a>.
@@ -110,6 +121,44 @@
             </div>
         </div>
     </div>
+
+    {{-- <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <!-- Image Section -->
+                <div class="modal-image">
+                    <img src="./assets/images/tools-img.svg" alt="Tool Image" />
+                </div>
+                <!-- Content Section -->
+                <div class="modal-text">
+                    <h2>Excel Sheet With Calculator</h2>
+                    <p>
+                        Stay up to date with the latest articles and business updates.
+                        You'll even get special recommendations weekly.
+                    </p>
+                    <!-- Subscription Section -->
+                    <form id="subscribeForm" class="modal-form">
+                        <!-- Email Input with Button -->
+                        <div class="form-group subscribe">
+                            <div class="input-container">
+                                <input type="email" id="email" name="email" placeholder="Enter your email"
+                                    required />
+                                <button type="submit">Continue</button>
+                            </div>
+                        </div>
+                        <!-- Terms and Conditions -->
+                        <div class="form-group terms">
+                            <input type="checkbox" id="terms" name="terms" required />
+                            <label for="terms">
+                                I accept the <a href="#">terms and conditions</a>.
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> --}}
 
 @endsection
 

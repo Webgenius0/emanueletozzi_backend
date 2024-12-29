@@ -64,6 +64,7 @@ return new class extends Migration
             ['title' => null, 'created_at' => now(), 'updated_at' => now()],
             // Header
             ['title' => null, 'created_at' => now(), 'updated_at' => now()],
+            ['title' => null, 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 

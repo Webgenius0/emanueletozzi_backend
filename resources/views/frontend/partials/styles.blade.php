@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/tm-responsive.css" />
 <link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/common-header.css" />
 <link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/commitment.css" />
-<link rel="stylesheet" href="http://127.0.0.1:8000/frontend/css/pricing-card.css" />
+<link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/pricing-card.css" />
 <link rel="stylesheet" href="https://one-startup-it.netlify.app/assets/css/modal.css" />
 
 @stack('style')

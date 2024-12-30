@@ -45,15 +45,14 @@
                 <h2 class="pricing-card-title">Orientations</h2>
                 <div class="pricing-card-lists">
                     <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Ideal if you need support on how to proceed</p>
+                    <p>Ideal if you need support on how to procced</p>
                 </div>
                 <div class="pricing-card-lists">
                     <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Personalized quotes for your needs</p>
+                    <p>Customized quote based on your needs and requirements</p>
                 </div>
                 <p class="pricing-card-desc">
-                    We will collect the information to provide you with a personalized
-                    quote.
+                    We will collect the information to provide you with a personalized qoute
                 </p>
                 <div class="pricing-card-duration">
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
@@ -61,7 +60,7 @@
                 </div>
                 <div class="pricing-card-duration">
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 30 min</p>
+                    <p>Duration: 15 min</p>
                 </div>
                 <h2 class="price-title">$00</h2>
                 <div class="pricing-card-buttons-container">
@@ -83,7 +82,7 @@
                 </div>
                 <div class="pricing-card-lists">
                     <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Personalized quotes for your needs</p>
+                    <p>Customized quote based on your needs and requirements</p>
                 </div>
                 <p class="pricing-card-desc">
                     We will collect the information to provide you with a personalized
@@ -95,9 +94,10 @@
                 </div>
                 <div class="pricing-card-duration">
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 30 min</p>
+                    <p>Duration: 15 min</p>
                 </div>
                 <h2 class="price-title">$89(Per S)</h2>
+                <p style="color: rgba(0, 0, 0, 0.5);">Include 4% CNPADC e 22& IVA</p>
                 <div class="pricing-card-buttons-container">
                     <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
                         target="_blank">Acquista Starter (S) € 89</a>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="pricing-card-lists">
                     <img src="{{ asset('frontend/images/icons/bgtickicon.svg') }}" alt="tick icon" />
-                    <p>Personalized quotes for your needs</p>
+                    <p>Customized quote based on your needs and requirements</p>
                 </div>
                 <p class="pricing-card-desc">
                     We will collect the information to provide you with a personalized
@@ -128,9 +128,10 @@
                 </div>
                 <div class="pricing-card-duration">
                     <img src="{{ asset('frontend/images/icons/clockicon.svg') }} " alt="clock icon" />
-                    <p>Duration: 30 min</p>
+                    <p>Duration: 15 min</p>
                 </div>
                 <h2 class="price-title">$89(Per S)</h2>
+                <p style="color: rgba(0, 0, 0, 0.5);">Include 4% CNPADC e 22& IVA</p>
                 <div class="pricing-card-buttons-container">
                     <a class="pricing-card-button" href="https://calendly.com/etozzi/appuntamento?month=2024-12"
                         target="_blank">Acquista Starter (S) € 89</a>
@@ -148,44 +149,36 @@
         <div class="services-heading">
             <h2 class="section-title">Ask for a quote</h2>
             <p class="section-desc">
-                We provide a complete range of services to start-up in business, legal and tax matters. To obtain more
-                information about our services, please visit the 'what we do' page. Please book an appointment to explain
-                your needs and obtain a quotation
+                We provide a complete range of services to start-up in business, legal and tax matters. To obtain more information about our services, please visit the "what we do" page. Please book an appointment to explain your needs and obtain a quotation.
             </p>
         </div>
         <!-- cards -->
         <div class="services-cards custom-container">
             <div class="service-card">
                 <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
+                    <img src="{{ asset('frontend/images/icons/business-icon.svg') }} " alt="" />
                 </div>
                 <h3 class="service-card-title">Business</h3>
                 <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
+                    Back up all your critical documents with up to 50GB of secure cloud storage. Store large files with ease, up to 5GB per file, ensuring that both small and large documents are covered.
                 </p>
             </div>
             <div class="service-card">
                 <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
-                </div>
-                <h3 class="service-card-title">Tax</h3>
-                <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
-                </p>
-            </div>
-            <div class="service-card">
-                <div class="services-icon">
-                    <img src="{{ asset('frontend/images/icons/services-icon.svg') }} " alt="" />
+                    <img src="{{ asset('frontend/images/icons/legal-icon.svg') }} " alt="" />
                 </div>
                 <h3 class="service-card-title">Legal</h3>
                 <p class="service-card-desc">
-                    Back up all your critical documents with up to 50GB of secure
-                    cloud storage. Store large files with ease, up to 5GB per file,
-                    ensuring that both small and large documents are covered.
+                    Back up all your critical documents with up to 50GB of secure cloud storage. Store large files with ease, up to 5GB per file, ensuring that both small and large documents are covered.
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="services-icon">
+                    <img src="{{ asset('frontend/images/icons/tax-icon.svg') }} " alt="" />
+                </div>
+                <h3 class="service-card-title">Tax</h3>
+                <p class="service-card-desc">
+                    Share your files immediately after uploading. Our platform makes it simple to share files via email, a secure link, or integration with your website and social media platforms.
                 </p>
             </div>
 

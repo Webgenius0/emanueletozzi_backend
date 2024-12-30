@@ -3,6 +3,13 @@
 @section('title', 'Preceptor Guru')
 
 @push('style')
+
+<style>
+    .testimonial-text p {
+        font-size: 22px;
+    }
+</style>
+
 @endpush
 
 @section('content')
@@ -107,12 +114,11 @@
                     <div class="testimonial-img">
                         <img src="{{ $review->image_url }}" alt="Client Image" />
                     </div>
-                    <div class="testimonial-content">
+                    <div class="testimonial-content testimonial-text">
 
-
-                        <p style="font-size: 16px !important;"  class="testimonial-text">
+                        <!--<p style="!important;"  class="testimonial-text">-->
                             {!! $review ? $review->description : '' !!}
-                        </p>
+                        <!--</p>-->
 
 
                         <h3 style="margin-top: 30px" class="customer-name mt-2">
@@ -129,7 +135,7 @@
                             <img src="{{ asset('frontend/images/icons/right-arrow.svg') }} " alt="Right Arrow" />
                         </div>
                         <div class="trustpilot-reviews">
-                            <a href="https://trustpilot%20reviews/" target="_blank"><p>trustpilot reviews</p></a>
+                            <a href="https://www.trustpilot.com/review/emanueletozzi.softvencefsd.xyz" target="_blank"><p>trustpilot reviews</p></a>
                           </div>
                     </div>
                 @endforeach

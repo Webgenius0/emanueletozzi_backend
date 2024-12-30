@@ -14,6 +14,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s;
+            border:none;
+            cursor:pointer;
         }
 
         #subscribe_btn:hover {
@@ -52,7 +54,6 @@
                 <div class="article-meta-section">
                     <!-- Article author and information -->
 
-
                     @php
                         $admin = App\Models\User::first();
                     @endphp
@@ -63,7 +64,7 @@
                         <div class="author-info">
                             <p class="author-name " style="color: white">{{ $admin->name }} </p>
                             <p class="article-details">
-                                {{ $blog->created_at->diffForHumans() }}
+                                {{ $blog->created_at->format('d F Y') }}
                             </p>
                         </div>
                     </div>
@@ -171,7 +172,7 @@
                         <div class="author-info">
                             <p class="author-name">{{ $admin->name }} </p>
                             <p class="article-details">
-                                {{ $blog->created_at->diffForHumans() }}
+                                {{ $blog->created_at->format('d F Y') }}
                             </p>
                         </div>
                     </div>
@@ -192,8 +193,7 @@
                 </div>
             @endif
             <h2>Subscribe to our newsletter</h2>
-            <p>Stay updated with the latest news, special offers, and exclusive content. Join our newsletter today and never
-                miss an update from us!</p>
+            <p style="font-size:16px !important">Stay updated with the latest news, special offers, and exclusive content. Join our newsletter today and never miss an update from us!</p>
             <form action="{{ route('newsletter.subscribe') }}" method="post">
                 @csrf
                 <div class="form-container">
@@ -205,10 +205,9 @@
                         <button id="subscribe_btn" type="submit">Subscribe</button>
                     </div>
 
-
                 </div>
             </form>
-            <p>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</p>
+            <p style="font-size:14px !important">By clicking subscribe you're confirming that you agree with our Terms and Conditions.</p>
         </div>
     </section>
 

@@ -29,7 +29,7 @@
                 </h1>
 
                 <p class="hero-desc">
-                    {!! $cms ? $cms[6]->description : '' !!}
+                    {!! $cms ? $cms[6]->description : 'We provide cybersecurity, communications, and technology managed services that <br> grow with your business- no matter what the future holds.' !!}
                 </p>
 
             </div>
@@ -44,7 +44,7 @@
 
     <!-- who we are section styles -->
     <section class="who-we-are-container">
-        <h2 class="section-title">What we do</h2>
+        <h2 class="section-title">What We Do</h2>
         <div class="one-startup-desc">
             <p>
                 {{ $cms ? $cms[7]->title : '' }}
@@ -165,7 +165,7 @@
                 </p>
                 <div class="hr"></div>
                 <div class="commitment-heading">
-                    <img src="./assets/images/icons/tickicon.svg" alt="" />
+                    <img src="{{ asset('frontend/images/icons/tickicon.svg') }}" alt="" />
 
                     <h4>
                         {!! $cms ? $cms[4]->sub_title : '' !!}
@@ -177,7 +177,7 @@
 
                 </p>
                 <div class="commitment-heading">
-                    <img src="./assets/images/icons/tickicon.svg" alt="" />
+                    <img src="{{ asset('frontend/images/icons/tickicon.svg') }}" alt="" />
                     <h4>
                         {!! $cms ? $cms[4]->button_text : '' !!}
 

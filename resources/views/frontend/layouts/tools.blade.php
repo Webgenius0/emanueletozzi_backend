@@ -31,7 +31,7 @@
             <!-- Overlay div -->
 
             @php
-                $cms = App\Models\Cms::get();
+                $cms = App\Models\CMS::get();
             @endphp
 
 
@@ -98,7 +98,7 @@
 
                     <p id="modal-tool-description"> </p>
                     <p>
-                        Enter your email to download this tool and optimize your business operations.
+                        Stay up to date with the latest articles and business updates. You’ll even get special recommendations weekly.
                     </p>
                     <!-- Subscription Section -->
                     <form id="subscribeForm" class="modal-form">
@@ -107,12 +107,12 @@
                             <div class="input-container">
                                 <input type="email" id="email" name="email" placeholder="Enter your email"
                                     required />
-                                <button type="submit">Download</button>
+                                <button type="submit">Continues</button>
                             </div>
                         </div>
                         <div class=" ">
                             <input type="checkbox" id="terms" name="terms" required />
-                            <label for="terms">
+                            <label for="terms" style="font-size:16px !important">
                                 I accept the <a href="#">terms and conditions</a>.
                             </label>
                         </div>

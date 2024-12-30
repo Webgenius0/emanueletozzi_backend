@@ -24,10 +24,10 @@
         <div class="footer-column">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="{{ route('about') }}">About Us</a></li>
-                <li><a href="{{ route('services') }}">Services</a></li>
-                <li><a href="{{ route('home.tools') }}">Tools</a></li>
-                <li><a href="{{ route('home.articles') }}">Articles</a></li>
+                <li><a href="{{ route('about') }}">Cosa facciamo</a></li>
+                <li><a href="{{ route('services') }}">Acquista ora</a></li>
+                <li><a href="{{ route('home.tools') }}">Strumenti</a></li>
+                <li><a href="{{ route('home.articles') }}">Articoli</a></li>
             </ul>
         </div>
         <div class="footer-column">

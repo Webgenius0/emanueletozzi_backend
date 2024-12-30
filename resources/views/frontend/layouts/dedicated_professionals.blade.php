@@ -1,32 +1,32 @@
-<section class="professionals-container custom-container">
-    <div class="professionals-heading">
-        <h2 class="section-title">
-            Dedicated Professionals With Consulting Experties
-        </h2>
-    </div>
+<!--<section class="professionals-container custom-container">-->
+<!--    <div class="professionals-heading">-->
+<!--        <h2 class="section-title">-->
+<!--            Dedicated Professionals With Consulting Experties-->
+<!--        </h2>-->
+<!--    </div>-->
 
-    <div class="professionals-profile">
-        @foreach ($professional_experts as $item)
-            <div class="professional-card">
-                <div class="professional-img">
-                    <img src="{{ $item->image_url ? asset($item->image_url) : '' }}" alt="Professional 1" />
-                </div>
-                <div class="professional-info">
-                    <h3 class="professional-name">{{ $item ? $item->name : '' }}</h3>
-                    <p class="professional-title">{{ $item->designation }}</p>
-                </div>
-            </div>
-        @endforeach
-    </div>
-    <div class="view-btn-container">
-        <a class="view-btn" href="{{ route('home.professional') }}">
-            <span class="primary-btn-content">
-                View all member
-                <img src="{{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />
-            </span>
-        </a>
-    </div>
-</section>
+<!--    <div class="professionals-profile">-->
+<!--        @foreach ($professional_experts as $item)-->
+<!--            <div class="professional-card">-->
+<!--                <div class="professional-img">-->
+<!--                    <img src="{{ $item->image_url ? asset($item->image_url) : '' }}" alt="Professional 1" />-->
+<!--                </div>-->
+<!--                <div class="professional-info">-->
+<!--                    <h3 class="professional-name">{{ $item ? $item->name : '' }}</h3>-->
+<!--                    <p class="professional-title">{{ $item->designation }}</p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        @endforeach-->
+<!--    </div>-->
+<!--    <div class="view-btn-container">-->
+<!--        <a class="view-btn" href="{{ route('home.professional') }}">-->
+<!--            <span class="primary-btn-content">-->
+<!--                View all member-->
+<!--                <img src="{{ asset('frontend/images/icons/arrow-icon.svg') }} " alt="arrow Icon" />-->
+<!--            </span>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 <section class="contact-us-container custom-container">

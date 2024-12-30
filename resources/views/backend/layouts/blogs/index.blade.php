@@ -1,7 +1,7 @@
 
 @extends('backend.app')
 
-@section('title', 'Blog')
+@section('title', 'Articoli')
 
 @push('styles')
     <style>
@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Blog</h4>
+                        <h4 class="card-title">Articoli</h4>
                         <div style="display: flex;justify-content: end;"><a href="{{ route('blogs.create') }}"
                                 class="btn btn-primary">Create</a></div>
                         <div class="table-responsive mt-4 p-4">

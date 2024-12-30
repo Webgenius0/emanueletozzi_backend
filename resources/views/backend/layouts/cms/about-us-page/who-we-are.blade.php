@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Who We Are')
+@section('title', 'What We Do')
 
 @push('styles')
     <style>
@@ -17,7 +17,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Who We Are Section</h4>
+                        <h4 class="card-title">What We Do Section</h4>
                         <div class="mt-4">
                             <form action="{{ route('cms.about-us.who-we-are.update') }}" method="POST"
                                   enctype="multipart/form-data">

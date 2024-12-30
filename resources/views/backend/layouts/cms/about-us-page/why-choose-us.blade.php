@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Why Choose Us')
+@section('title', 'Text Area')
 
 @push('styles')
     <style>
@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Why Choose Us Section</h4>
+                        <h4 class="card-title">Text Area Section</h4>
                         <div class="mt-4">
                             <form action="{{ route('cms.about-us.why-choose-us.update') }}" method="POST"
                                   enctype="multipart/form-data">

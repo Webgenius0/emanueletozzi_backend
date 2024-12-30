@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Edit Blog')
+@section('title', 'Edit Articoli')
 
 @push('style')
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
@@ -18,7 +18,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Blog</h4>
+                        <h4 class="card-title">Edit Articoli</h4>
                         <div class="mt-4">
                             <form class="forms-sample" action="{{ route('blogs.update', ['id' => $data->id]) }}"
                                 method="POST" enctype="multipart/form-data">
@@ -27,7 +27,7 @@
                                     <div class="col-12">
                                         <div class="form-group row mb-3">
                                             <div class="col">
-                                                <label class="form-lable required">Blog details Image:</label>
+                                                <label class="form-lable required">Articoli details Image:</label>
                                                 <input
                                                     class="form-control dropify @error('detail_image_url') is-invalid @enderror"
                                                     type="file" data-default-file="{{ $data->detail_image_url ? asset('/' . $data->detail_image_url) : asset('backend/img/placeholder/image_placeholder.png') }}" name="detail_image_url">
@@ -56,7 +56,7 @@
                                     <div class="col-12">
                                         <div class="form-group row mb-3">
                                             <div class="col">
-                                                <label class="form-lable required">Blog  Image:</label>
+                                                <label class="form-lable required">Articoli  Image:</label>
                                                 <input
                                                     class="form-control dropify @error('blog_image') is-invalid @enderror"
                                                     type="file" data-default-file="{{ $data->blog_image ? asset('/' . $data->blog_image) : asset('backend/img/placeholder/image_placeholder.png') }}" name="blog_image">

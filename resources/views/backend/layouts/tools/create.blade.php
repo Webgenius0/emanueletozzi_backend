@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Create Tool')
+@section('title', 'Create Strumenti')
 
 @push('styles')
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
@@ -18,7 +18,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Create Tool</h4>
+                        <h4 class="card-title">Create Strumenti</h4>
                         <div class="mt-4">
                             <form class="forms-sample" action="{{ route('tools.store') }}" method="POST"
                             enctype="multipart/form-data">

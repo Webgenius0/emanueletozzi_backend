@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Our Digital Journey')
+@section('title', 'Our Business Area')
 
 @push('styles')
     <style>
@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Digital Journey Section</h4>
+                        <h4 class="card-title">Business Area Section</h4>
                         <div class="mt-4">
                             <form action="{{ route('cms.about-us.digital-journey.update') }}" method="POST"
                                   enctype="multipart/form-data">

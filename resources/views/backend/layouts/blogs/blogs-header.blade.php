@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@section('title', 'Blogs Header')
+@section('title', 'Articoli Header')
 
 @push('styles')
     <style>
@@ -16,7 +16,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Blogs Header Section</h4>
+                        <h4 class="card-title">Articoli Header Section</h4>
                         <div class="mt-4">
                             <form action="{{ route('blogs.header.update') }}" method="POST"
                                   enctype="multipart/form-data">

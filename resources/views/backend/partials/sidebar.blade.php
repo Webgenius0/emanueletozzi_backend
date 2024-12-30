@@ -45,7 +45,7 @@
             class="menu-item {{ Request::routeIs('cms.landing-page.*') || Request::routeIs('our-values.*') || Request::routeIs('process.*') || Request::routeIs('clinical.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
-                <div data-i18n="Layouts">Landing Page</div>
+                <div data-i18n="Layouts">Home Page</div>
             </a>
 
             <ul class="menu-sub">
@@ -62,12 +62,12 @@
             </ul>
 
 
-            <ul class="menu-sub">
+            {{-- <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.experties') ? 'active' : '' }}"><a
                         class="menu-link" href="{{ route('cms.landing-page.experties') }}">Our Experties Header</a>
                 </li>
 
-            </ul>
+            </ul> --}}
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('cms.landing-page.client-review-header') ? 'active' : '' }}">
                     <a class="menu-link" href="{{ route('cms.landing-page.client-review-header') }}">Clients Review
@@ -121,7 +121,7 @@
             class="menu-item {{ Request::routeIs('cms.about-us.*') || Request::routeIs('cms.intake-form.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
-                <div data-i18n="Layouts">About Us</div>
+                <div data-i18n="Layouts">Cosa facciamo</div>
             </a>
 
             <ul class="menu-sub">
@@ -155,18 +155,18 @@
         <li class="menu-item {{ Request::routeIs('tools.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
-                <div data-i18n="Layouts">Tools Page</div>
+                <div data-i18n="Layouts">Strumenti Page</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('tools.header') ? 'active' : '' }}"><a class="menu-link"
-                        href="{{ route('tools.header') }}">Tools Header</a></li>
+                        href="{{ route('tools.header') }}">Strumenti Header</a></li>
 
             </ul>
 
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('tools.index') ? 'active' : '' }}"><a class="menu-link"
-                        href="{{ route('tools.index') }}">Tools</a></li>
+                        href="{{ route('tools.index') }}">Strumenti</a></li>
 
             </ul>
         </li>
@@ -223,23 +223,19 @@
 
         <!-- Layouts -->
 
-        <li class="menu-header small text-uppercase">
+        {{-- <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Experties</span>
-        </li>
+        </li> --}}
 
 
-        <li
+        {{-- <li
             class="menu-item {{ Request::routeIs('experts.*') || Request::routeIs('skills.*') || Request::routeIs('experiences.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
                 <div data-i18n="Layouts">Experties Page</div>
             </a>
 
-            {{-- <ul class="menu-sub">
-                <li class="menu-item {{ Request::routeIs('experts.header') ? 'active' : '' }}"><a
-                        class="menu-link" href="{{ route('experts.header') }}">Experties Header</a></li>
 
-            </ul> --}}
 
             <ul class="menu-sub">
                 <li
@@ -262,29 +258,29 @@
                     <a class="menu-link" href="{{ route('experiences.index') }}">Experiences</a></li>
 
             </ul>
-        </li>
+        </li> --}}
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Blog</span>
+            <span class="menu-header-text">Articoli</span>
         </li>
 
 
         <li class="menu-item {{ Request::routeIs('blogs.*') ? 'active open' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-male-female"></i>
-                <div data-i18n="Layouts">Blog Page</div>
+                <div data-i18n="Layouts">Articoli Page</div>
             </a>
 
             <ul class="menu-sub">
                 <li class="menu-item {{ Request::routeIs('blogs.header') ? 'active' : '' }}"><a class="menu-link"
-                        href="{{ route('blogs.header') }}">Blog Header</a></li>
+                        href="{{ route('blogs.header') }}">Articoli Header</a></li>
 
             </ul>
 
             <ul class="menu-sub">
                 <li
                     class="menu-item {{ Request::routeIs('blogs.index') || Request::routeIs('blogs.edit') || Request::routeIs('blogs.create') || Request::routeIs('blogs.update') ? 'active' : '' }}">
-                    <a class="menu-link" href="{{ route('blogs.index') }}">Blogs</a></li>
+                    <a class="menu-link" href="{{ route('blogs.index') }}">Articoli</a></li>
 
             </ul>
         </li>
@@ -352,7 +348,7 @@
                         <div data-i18n="Connections">Mail Setting</div>
                     </a>
                 </li>
-                <li class="menu-item {{ Request::routeIs('stripe.index') ? 'active' : ' ' }}">
+                {{-- <li class="menu-item {{ Request::routeIs('stripe.index') ? 'active' : ' ' }}">
                     <a href="{{ route('stripe.index') }}" class="menu-link">
                         <div data-i18n="Connections">Stripe Setting</div>
                     </a>
@@ -362,7 +358,7 @@
                     <a href="{{ route('dynamic_page.index') }}" class="menu-link">
                         <div data-i18n="Connections">Dynamic Page Setting</div>
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li class="menu-item {{ Request::routeIs('custom-script.index') || Request::routeIs('custom-script.create') || Request::routeIs('custom-script.edit') ? 'active' : ' ' }}">
                     <a href="{{route('custom-script.index')}}" class="menu-link">
                         <div data-i18n="Connections">Custom Script</div>
